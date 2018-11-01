@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiveRingsDb", "FiveRingsDb\FiveRingsDb.csproj", "{F91A42DD-4C55-4F9A-99EF-1094A45E3020}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiveRingsDb.Tests", "FiveRingsDb.Tests\FiveRingsDb.Tests.csproj", "{9075BFE7-6316-4A1F-AFA3-D9BC3942114B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F91A42DD-4C55-4F9A-99EF-1094A45E3020}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F91A42DD-4C55-4F9A-99EF-1094A45E3020}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F91A42DD-4C55-4F9A-99EF-1094A45E3020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9075BFE7-6316-4A1F-AFA3-D9BC3942114B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9075BFE7-6316-4A1F-AFA3-D9BC3942114B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9075BFE7-6316-4A1F-AFA3-D9BC3942114B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9075BFE7-6316-4A1F-AFA3-D9BC3942114B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
