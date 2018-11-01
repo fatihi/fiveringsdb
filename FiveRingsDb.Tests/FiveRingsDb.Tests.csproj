@@ -18,7 +18,4 @@
   <ItemGroup>
     <ProjectReference Include="..\FiveRingsDb\FiveRingsDb.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
 </Project>

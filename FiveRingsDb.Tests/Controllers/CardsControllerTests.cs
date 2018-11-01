@@ -4,14 +4,14 @@ using FluentAssertions;
 
 namespace FiveRingsDb.Tests.Controllers
 {
-    public class ValuesControllerTests
+    public class CardsControllerTests
     {
-        private ValuesController sut;
+        private CardsController sut;
 
         [SetUp]
         public void Setup()
         {
-            sut = new ValuesController();
+            sut = new CardsController();
         }
 
         [Test]
