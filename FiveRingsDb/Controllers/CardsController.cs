@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FiveRingsDb.Controllers
@@ -11,9 +8,15 @@ namespace FiveRingsDb.Controllers
     public class CardsController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<IActionResult> GetCards()
         {
-            return new string[] { "value1", "value2" };
+            return Ok("Not yet implemented");
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetCard()
+        {
+            return Ok("Not yet implemented");
         }
     }
 }
