@@ -1,6 +1,7 @@
 using FiveRingsDb.Controllers;
 using NUnit.Framework;
 using FluentAssertions;
+using System.Threading.Tasks;
 
 namespace FiveRingsDb.Tests.Controllers
 {
@@ -17,8 +18,8 @@ namespace FiveRingsDb.Tests.Controllers
         [Test]
         public void Get_ReturnsValues()
         {
-            var result = sut.Get();
-            result.Value.Should().BeEquivalentTo(new string[] { "value1", "value2" });
+            var result = sut.GetCard();
+            result?.Status.Should().Be(TaskStatus.RanToCompletion);
         }
     }
 }
