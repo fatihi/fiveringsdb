@@ -10,13 +10,13 @@ namespace FiveRingsDb.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCards()
         {
-            return Ok("Not yet implemented");
+            return NoContent();
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCard()
         {
-            return Ok("Not yet implemented");
+            return NoContent();
         }
     }
 }

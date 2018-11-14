@@ -5,22 +5,22 @@ namespace FiveRingsDb.Controllers
 {
     public class CardRulingsController : ControllerBase
     {
-        [HttpGet("{id}")]
+        [HttpGet]
         public async Task<IActionResult> GetRulings()
         {
-            return Ok("Not yet implemented");
+            return NoContent();
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetRuling()
         {
-            return Ok("Not yet implemented");
+            return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRuling()
         {
-            return Ok("Not yet implemented");
+            return NoContent();
         }
     }
 }
