@@ -1,5 +1,6 @@
 language: csharp
 solution: FiveRingsDb.sln
+mono: none
 dotnet: 2.1.3
 script:
   - dotnet restore
