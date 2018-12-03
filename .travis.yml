@@ -1,0 +1,7 @@
+language: csharp
+solution: FiveRingsDb.sln
+mono: none
+dotnet: 2.1
+script:
+  - dotnet build
+  - dotnet test ./FiveRingsDb.Tests
