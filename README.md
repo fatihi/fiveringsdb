@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fatihi/fiveringsdb.svg?branch=master)](https://travis-ci.org/fatihi/fiveringsdb)
+
 # FiveRingsDb
 
 FiveRingsDb is a deckbuilder for The Legend of the Five Rings LCG &copy;.
