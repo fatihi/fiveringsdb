@@ -2,7 +2,7 @@
 
 # FiveRingsDb
 
-FiveRingsDb is a deckbuilder for The Legend of the Five Rings LCG &copy;.
+FiveRingsDb is a deck builder for The Legend of the Five Rings LCG<sup>&copy;</sup>.
 
 ## License
 
