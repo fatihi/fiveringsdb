@@ -46,7 +46,7 @@ _StyleCop.Analyzers_ is part of the new Roslyn compiler
 * StyleCop  is not as powerful as ReSharper and does not allow for
 as many checks. 
 
-## Links <!-- optional -->
+## Links
 
 * [StyleCop website](https://github.com/StyleCop/StyleCop)
 * [StyleCop.Analyzers website](https://github.com/DotNetAnalyzers/StyleCopAnalyzers)

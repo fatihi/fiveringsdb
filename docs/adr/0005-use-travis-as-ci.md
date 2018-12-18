@@ -13,7 +13,7 @@ We want to automagically create new versions of our software
 and deploy them on the production server.
 Which service shall we use for this?
 
-## Decision Drivers <!-- optional -->
+## Decision Drivers
 
 * The chosen solution should be cheap or free, even.
 * The chosen solution has to support .NET Core
