@@ -10,6 +10,7 @@ This log lists the architectural decisions for [project name].
 - [ADR-0003](0003-use-stylecop-as-style-checker.md) - Use StyleCop as Style Checker
 - [ADR-0004](0004-use-postgres-database.md) - Use PostgreSQL as Database
 - [ADR-0005](0005-use-travis-as-ci.md) - Use Travis CI as CI Server
+- [ADR-0006](0006-use-docker-for-deployment.md) - Use Docker for Packaging and Deployment
 
 <!-- adrlogstop -->
 
