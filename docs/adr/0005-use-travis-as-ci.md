@@ -1,7 +1,7 @@
 # Use Travis CI as CI Server
 
 * Status: accepted
-* Deciders: fatihi, programming-wolf, Fuzzylog1cza
+* Deciders: fatihi, programming-wolf, Fuzzylog1cza, MattD
 * Date: 2018-12-18
 
 Technical Story: #11

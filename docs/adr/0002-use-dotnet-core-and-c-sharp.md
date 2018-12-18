@@ -1,7 +1,7 @@
 # Use .NET Core and C#
 
 * Status: accepted
-* Deciders: fatihi, programming-wolf, Fuzzylog1cza
+* Deciders: fatihi, programming-wolf, Fuzzylog1cza, MattD
 * Date: 2018-12-18
 
 ## Context and Problem Statement

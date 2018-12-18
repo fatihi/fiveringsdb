@@ -1,7 +1,7 @@
 # Use StyleCop as Style Checker
 
 * Status: accepted
-* Deciders: fatihi, programming-wolf, Fuzzylog1cza
+* Deciders: fatihi, programming-wolf, Fuzzylog1cza, MattD
 * Date: 2018-12-18
 
 Technical Story: [#13](https://github.com/fatihi/fiveringsdb/issues/13)

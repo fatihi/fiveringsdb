@@ -1,7 +1,7 @@
 # Use MIT License
 
 * Status: accepted
-* Deciders: fatihi
+* Deciders: fatihi, programming-wolf, Fuzzylog1cza, MattD
 * Date: 2018-12-18
 
 ## Context and Problem Statement
