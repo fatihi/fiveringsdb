@@ -1,4 +1,4 @@
-# [Use .NET Core and C#]
+# Use .NET Core and C#
 
 * Status: accepted
 * Deciders: fatihi, programming-wolf, Fuzzylog1cza

@@ -1,4 +1,4 @@
-# [Use StyleCop as Style Checker]
+# Use StyleCop as Style Checker
 
 * Status: accepted
 * Deciders: fatihi, programming-wolf, Fuzzylog1cza
