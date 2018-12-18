@@ -4,7 +4,7 @@
 * Deciders: fatihi, programming-wolf, Fuzzylog1cza
 * Date: 2018-12-18
 
-Technical Story: #8
+Technical Story: [#8](https://github.com/fatihi/fiveringsdb/issues/8)
 
 ## Context and Problem Statement
 
