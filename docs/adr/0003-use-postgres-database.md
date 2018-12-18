@@ -1,4 +1,4 @@
-# [Use PostgreSQL as Database]
+# Use PostgreSQL as Database
 
 * Status: accepted
 * Deciders: fatihi, programming-wolf, Fuzzylog1cza
