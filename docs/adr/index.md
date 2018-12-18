@@ -9,6 +9,7 @@ This log lists the architectural decisions for [project name].
 - [ADR-0002](0002-use-dotnet-core-and-c-sharp.md) - Use .NET Core and C#
 - [ADR-0003](0003-use-stylecop-as-style-checker.md) - Use StyleCop as Style Checker
 - [ADR-0004](0004-use-postgres-database.md) - Use PostgreSQL as Database
+- [ADR-0005](0005-use-travis-as-ci.md) - Use Travis CI as CI Server
 
 <!-- adrlogstop -->
 
