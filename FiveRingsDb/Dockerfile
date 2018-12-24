@@ -1,14 +1,12 @@
-FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
+FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 50365
 EXPOSE 44395
 
-FROM microsoft/dotnet:2.1-sdk AS build
+FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /src
 COPY ["FiveRingsDb/FiveRingsDb.csproj", "FiveRingsDb/"]
-RUN dotnet restore "FiveRingsDb/FiveRingsDb.csproj"
-COPY . .
-WORKDIR "/src/FiveRingsDb"
+WORKDIR /src/FiveRingsDb
 RUN dotnet build "FiveRingsDb.csproj" -c Release -o /app
 
 FROM build AS publish
