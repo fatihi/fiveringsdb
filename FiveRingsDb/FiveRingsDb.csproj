@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <CodeAnalysisRuleSet>../ca.ruleset</CodeAnalysisRuleSet>
     <DockerTargetOS>Linux</DockerTargetOS>
     <UserSecretsId>5b268a3e-f494-4a1a-93b0-8a2c08825956</UserSecretsId>
