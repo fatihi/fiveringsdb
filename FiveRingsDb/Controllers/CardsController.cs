@@ -14,7 +14,55 @@ namespace FiveRingsDb.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCard()
+        public async Task<IActionResult> GetCard(string id)
+        {
+            return NoContent();
+        }
+
+        [HttpGet("{id}/rulings")]
+        public async Task<IActionResult> GetCardRulings(string id)
+        {
+            return NoContent();
+        }
+
+        [HttpPost("{id}/rulings")]
+        public async Task<IActionResult> AddCardRuling(string id)
+        {
+            return NoContent();
+        }
+
+        [HttpPatch("{id}/rulings/{rulingId}")]
+        public async Task<IActionResult> ChangeCardRuling(string id, string rulingId)
+        {
+            return NoContent();
+        }
+
+        [HttpGet("{id}/rulings/{rulingId}")]
+        public async Task<IActionResult> GetCardRuling(string id, string rulingId)
+        {
+            return NoContent();
+        }
+
+        [HttpGet("{id}/reviews")]
+        public async Task<IActionResult> GetReviews(string id)
+        {
+            return NoContent();
+        }
+
+        [HttpPost("{id}/reviews")]
+        public async Task<IActionResult> AddReview(string id)
+        {
+            return NoContent();
+        }
+
+        [HttpGet("{id}/reviews/{reviewId}")]
+        public async Task<IActionResult> GetReview(string id, string reviewId)
+        {
+            return NoContent();
+        }
+
+        [HttpPatch("{id}/reviews/{reviewId}")]
+        public async Task<IActionResult> ChangeReview(string id, string reviewId)
         {
             return NoContent();
         }

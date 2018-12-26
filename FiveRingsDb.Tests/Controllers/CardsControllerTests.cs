@@ -2,7 +2,6 @@ using FiveRingsDb.Controllers;
 using NUnit.Framework;
 using FluentAssertions;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace FiveRingsDb.Tests.Controllers
 {
@@ -19,7 +18,7 @@ namespace FiveRingsDb.Tests.Controllers
         [Test]
         public void GetCard_ReturnsValues()
         {
-            var result = sut.GetCard();
+            var result = sut.GetCard("");
             result.Status.Should().Be(TaskStatus.RanToCompletion);
         }
 

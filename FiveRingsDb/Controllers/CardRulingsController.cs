@@ -10,17 +10,5 @@ namespace FiveRingsDb.Controllers
         {
             return NoContent();
         }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetRuling()
-        {
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRuling()
-        {
-            return NoContent();
-        }
     }
 }
