@@ -1,11 +1,5 @@
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-
 namespace FiveRingsDb.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
 
@@ -27,12 +21,6 @@ namespace FiveRingsDb.Controllers
 
         [HttpGet("{id}/rulings")]
         public async Task<IActionResult> GetCardRulings(string id)
-        {
-            return NoContent();
-        }
-
-        [HttpPost("{id}/rulings")]
-        public async Task<IActionResult> AddCardRuling(string id)
         {
             return NoContent();
         }
