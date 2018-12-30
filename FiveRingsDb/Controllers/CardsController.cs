@@ -1,8 +1,8 @@
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+
 namespace FiveRingsDb.Controllers
 {
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Mvc;
-
     [Route("[controller]")]
     [ApiController]
     public class CardsController : ControllerBase

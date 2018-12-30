@@ -1,10 +1,10 @@
+﻿using System.Threading.Tasks;
+using FiveRingsDb.Controllers;
+using FluentAssertions;
+using NUnit.Framework;
+
 namespace FiveRingsDb.Tests.Controllers
 {
-    using FiveRingsDb.Controllers;
-    using FluentAssertions;
-    using NUnit.Framework;
-    using System.Threading.Tasks;
-
     public class CardsControllerTests
     {
         private CardsController sut;
