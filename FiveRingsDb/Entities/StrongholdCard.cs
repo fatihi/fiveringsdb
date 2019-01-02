@@ -1,12 +1,10 @@
-using System;
-
-namespace Entities
+namespace FiveRingsDb.Entities
 {
     public class StrongholdCard : Card
     {
-        public int Strength { get; set; }
-        public int StartingHonor { get; set; }
-        public int FatePerRound { get; set; }
-        public int Influence { get; set; }
+        public int InfluencePool { get; private set; }
+        public int Fate { get; private set; }
+        public string StrengthBonus { get; private set; }
+        public int Honor { get; private set; }
     }
 }
