@@ -1,9 +1,10 @@
+﻿using System.Threading.Tasks;
+using FiveRingsDb.Controllers;
+using FluentAssertions;
+using NUnit.Framework;
+
 namespace FiveRingsDb.Tests.Controllers
 {
-    using FiveRingsDb.Controllers;
-    using FluentAssertions;
-    using NUnit.Framework;
-
     public class CardsControllerTests
     {
         private CardsController sut;
@@ -15,10 +16,17 @@ namespace FiveRingsDb.Tests.Controllers
         }
 
         [Test]
-        public void Get_ReturnsValues()
+        public void GetCard_ReturnsValues()
         {
-            var result = sut.Get();
-            result.Value.Should().BeEquivalentTo(new string[] { "value1", "value2" });
+            var result = sut.GetCard("");
+            result.Status.Should().Be(TaskStatus.RanToCompletion);
+        }
+
+        [Test]
+        public void GetCards_ReturnsValues()
+        {
+            var result = sut.GetCards();
+            result.Status.Should().Be(TaskStatus.RanToCompletion);
         }
     }
 }
