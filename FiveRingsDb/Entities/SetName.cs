@@ -1,42 +1,24 @@
-using System;
 using System.Runtime.Serialization;
 
-namespace Entities
+namespace FiveRingsDb.Entities
 {
     public enum SetName
     {
-        [EnumMember(Value="Core Set")]
-        CoreSet,
-        [EnumMember(Value="Tears of Amaterasu")]
-        TearsOfAmaterasu,
-        [EnumMember(Value="For Honor and Glory")]
-        ForHonorAndGlory,
-        [EnumMember(Value="Into the Forbidden City")]
-        IntoTheForbiddenCity,
-        [EnumMember(Value="The Chrysanthemum Throne")]
-        TheChrysanthemumThrone,
-        [EnumMember(Value="Fate Has No Secrets")]
-        FateHasNoSecrets,
-        [EnumMember(Value="Meditations on the Ephemeral")]
-        MeditationsOnTheEphemeral,
-        [EnumMember(Value="Phoenix: Disciples of the Void")]
-        PhoenixDisciplesOfTheVoid,
-        [EnumMember(Value="Breath of the Kami")]
-        BreathOfTheKami,
-        [EnumMember(Value="Tainted Lands")]
-        TaintedLands,
-        [EnumMember(Value="The Fires Within")]
-        TheFiresWithin,
-        [EnumMember(Value="The Ebb and Flow")]
-        TheEbbAndFlow,
-        [EnumMember(Value="All and Nothing")]
-        AllAndNothing,
-        [EnumMember(Value="Elements Unbound")]
-        ElementsUnbound,
-        [EnumMember(Value="Scorpion: Underhand of the Emperor")]
-        ScorpionUnderhandOfTheEmperor,
-        [EnumMember(Value="Children of the Empire")]
-        ChildrenOfTheEmpire
-
+        [EnumMember(Value="core-set")] CoreSet,
+        [EnumMember(Value="tears-of-amaterasu")] TearsOfAmaterasu,
+        [EnumMember(Value="for-honor-and-glory")] ForHonorAndGlory,
+        [EnumMember(Value="into-the-forbidden-city")] IntoTheForbiddenCity,
+        [EnumMember(Value="the-chrysanthemum-throne")] TheChrysanthemumThrone,
+        [EnumMember(Value="fate-has-no-secrets")] FateHasNoSecrets,
+        [EnumMember(Value="meditations-on-the-ephemeral")] MeditationsOnTheEphemeral,
+        [EnumMember(Value="disciples-of-the-void")] DisciplesOfTheVoid,
+        [EnumMember(Value="breath-of-the-kami")] BreathOfTheKami,
+        [EnumMember(Value="tainted-lands")] TaintedLands,
+        [EnumMember(Value="the-fires-within")] TheFiresWithin,
+        [EnumMember(Value="the-ebb-and-flow")] TheEbbAndFlow,
+        [EnumMember(Value="all-and-nothing")] AllAndNothing,
+        [EnumMember(Value="elements-unbound")] ElementsUnbound,
+        [EnumMember(Value="underhand-of-the-emperor")] UnderhandOfTheEmperor,
+        [EnumMember(Value="children-of-the-empire")] ChildrenOfTheEmpire
     }
 }
