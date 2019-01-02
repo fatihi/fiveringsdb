@@ -1,22 +1,20 @@
-using System;
-using System.Collections.Generic;
-
-namespace Entities
+namespace FiveRingsDb.Entities
 {
+    using System.Collections.Generic;
+
     public abstract class Card
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Image { get; set; }
-        public Clan Clan { get; set; }
-        public List<string> Traits { get; set; }
-        public string Body { get; set; }
-        public string Illustrator { get; set; }
-        public int CardNumber { get; set; }
-        public SetName Set { get; set; }
-        public bool IsUnique { get; set; }
-        public bool OnRestrictedList { get; set; }
-        public int AllowedCount { get; set; }
-        public string Deck { get; set; }
+        public string Id { get; private set; }
+        public string Name { get; private set; }
+        public string NameCanonical { get; private set; }
+        public IEnumerable<Trait> Traits { get; private set; }
+        public Side Side { get; private set; }
+        public int DeckLimit { get; private set; }
+        public IEnumerable<PrintedCard> PackCards { get; private set; }
+        public Clan Clan { get; private set; }
+        public bool IsUnique { get; private set; }
+        public Type Type { get; private set; }
+        public bool IsRestricted { get; private set; }
+        public string Text { get; private set; }
     }
 }
