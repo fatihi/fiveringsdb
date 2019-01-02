@@ -16,5 +16,6 @@ namespace FiveRingsDb.Entities
         public Type Type { get; private set; }
         public bool IsRestricted { get; private set; }
         public string Text { get; private set; }
+        public string TextCanonical { get; private set; }
     }
 }
