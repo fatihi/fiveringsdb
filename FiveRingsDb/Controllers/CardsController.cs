@@ -26,6 +26,13 @@ namespace FiveRingsDb.Controllers
         }
 
         // TODO create [FromBody] model binding for ruling
+        [HttpPost("{id}/rulings")]
+        public async Task<IActionResult> AddCardRuling(string id)
+        {
+            return NoContent();
+        }
+
+        // TODO create [FromBody] model binding for ruling
         [HttpPatch("{id}/rulings/{rulingId}")]
         public async Task<IActionResult> ChangeCardRuling(string id, string rulingId)
         {
