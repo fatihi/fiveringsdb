@@ -25,6 +25,7 @@ namespace FiveRingsDb.Controllers
             return NoContent();
         }
 
+        // TODO create [FromBody] model binding for ruling
         [HttpPatch("{id}/rulings/{rulingId}")]
         public async Task<IActionResult> ChangeCardRuling(string id, string rulingId)
         {
@@ -43,6 +44,7 @@ namespace FiveRingsDb.Controllers
             return NoContent();
         }
 
+        // TODO create [FromBody] model binding for review
         [HttpPost("{id}/reviews")]
         public async Task<IActionResult> AddReview(string id)
         {
@@ -55,6 +57,7 @@ namespace FiveRingsDb.Controllers
             return NoContent();
         }
 
+        // TODO create [FromBody] model binding for review
         [HttpPatch("{id}/reviews/{reviewId}")]
         public async Task<IActionResult> ChangeReview(string id, string reviewId)
         {
