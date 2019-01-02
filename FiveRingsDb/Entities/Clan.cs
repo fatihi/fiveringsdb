@@ -1,16 +1,16 @@
-using System;
-
-namespace Entities
+namespace FiveRingsDb.Entities
 {
+    using System.Runtime.Serialization;
+
     public enum Clan
     {
-        Crab,
-        Crane,
-        Dragon,
-        Lion,
-        Neutral,
-        Phoenix,
-        Scorpion,
-        Unicorn
+        [EnumMember(Value = "Crab")] Crab,
+        [EnumMember(Value = "Crane")] Crane,
+        [EnumMember(Value = "Dragon")] Dragon,
+        [EnumMember(Value = "Lion")] Lion,
+        [EnumMember(Value = "Neutral")] Neutral,
+        [EnumMember(Value = "Phoenix")] Phoenix,
+        [EnumMember(Value = "Scorpion")] Scorpion,
+        [EnumMember(Value = "Unicorn")] Unicorn
     }
 }
