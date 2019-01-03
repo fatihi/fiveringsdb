@@ -17,5 +17,6 @@ namespace FiveRingsDb.Entities
         public bool IsRestricted { get; private set; }
         public string Text { get; private set; }
         public string TextCanonical { get; private set; }
+        public RoleRestriction? RoleRestriction { get; private set; }
     }
 }
