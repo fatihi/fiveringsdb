@@ -1,7 +1,7 @@
+using System.Collections.Generic;
+
 namespace FiveRingsDb.Entities
 {
-    using System.Collections.Generic;
-
     public abstract class Card
     {
         public string Id { get; private set; }

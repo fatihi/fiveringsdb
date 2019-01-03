@@ -1,7 +1,7 @@
+using System.Runtime.Serialization;
+
 namespace FiveRingsDb.Entities
 {
-    using System.Runtime.Serialization;
-
     public enum Clan
     {
         [EnumMember(Value = "Crab")] Crab,
