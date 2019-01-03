@@ -1,13 +1,11 @@
-using System;
-
-namespace Entities
+namespace FiveRingsDb.Entities
 {
     public class CharacterCard : Card
     {
-        public int Cost { get; set; }
-        public int MilitarySkill { get; set; }
-        public int PoliticalSkill { get; set; }
-        public int Glory { get; set; }
-        public int InfluenceCost { get; set; }
+        public int Cost { get; private set; }
+        public string Military { get; private set; }
+        public string Political { get; private set; }
+        public int Glory { get; private set; }
+        public int? InfluenceCost { get; private set; }
     }
 }
