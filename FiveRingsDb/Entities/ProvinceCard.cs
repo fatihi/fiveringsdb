@@ -1,10 +1,8 @@
-using System;
-
-namespace Entities
+namespace FiveRingsDb.Entities
 {
     public class ProvinceCard : Card
     {
-        public string Ring { get; set; }
-        public int Strength { get; set; }
+        public string Element { get; private set; }
+        public string Strength { get; private set; }
     }
 }
