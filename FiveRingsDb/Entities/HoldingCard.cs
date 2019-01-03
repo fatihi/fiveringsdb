@@ -1,9 +1,7 @@
-using System;
-
-namespace Entities
+namespace FiveRingsDb.Entities
 {
     public class HoldingCard : Card
     {
-        public int BonusStrength { get; set; }
+        public string StrengthBonus { get; set; }
     }
 }
