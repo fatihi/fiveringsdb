@@ -1,11 +1,17 @@
-﻿namespace FiveRingsDb.Entities
+﻿using System;
+
+namespace FiveRingsDb.Entities
 {
     public class PrintedCard
     {
-        public string Illustrator { get; private set; }
-        public string ImageUrl { get; private set; }
-        public SetName Pack { get; private set; }
-        public string Position { get; private set; }
-        public int Quantity { get; private set; }
+        public string Illustrator { get; }
+
+        public Uri ImageUrl { get; }
+
+        public SetName Pack { get; }
+
+        public string Position { get; }
+
+        public int Quantity { get; }
     }
 }
