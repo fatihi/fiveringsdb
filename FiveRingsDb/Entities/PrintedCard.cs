@@ -4,14 +4,14 @@ namespace FiveRingsDb.Entities
 {
     public class PrintedCard
     {
-        public string Illustrator { get; }
+        public string Illustrator { get; set; }
 
-        public Uri ImageUrl { get; }
+        public Uri ImageUrl { get; set; }
 
-        public SetName Pack { get; }
+        public SetName Pack { get; set; }
 
-        public string Position { get; }
+        public string Position { get; set; }
 
-        public int Quantity { get; }
+        public int Quantity { get; set; }
     }
 }
