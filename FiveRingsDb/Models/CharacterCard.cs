@@ -2,14 +2,14 @@ namespace FiveRingsDb.Models
 {
     public class CharacterCard : Card
     {
-        public int Cost { get; }
+        public int Cost { get; set; }
 
-        public string Military { get; }
+        public string Military { get; set; }
 
-        public string Political { get; }
+        public string Political { get; set; }
 
-        public int Glory { get; }
+        public int Glory { get; set; }
 
-        public int? InfluenceCost { get; }
+        public int? InfluenceCost { get; set; }
     }
 }

@@ -2,8 +2,8 @@ namespace FiveRingsDb.Entities
 {
     public class ProvinceCard : Card
     {
-        public Element Element { get; }
+        public Element Element { get; set; }
 
-        public string Strength { get; }
+        public string Strength { get; set; }
     }
 }

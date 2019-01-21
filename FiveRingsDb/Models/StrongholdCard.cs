@@ -2,12 +2,12 @@ namespace FiveRingsDb.Models
 {
     public class StrongholdCard : Card
     {
-        public int InfluencePool { get; }
+        public int InfluencePool { get; set; }
 
-        public int Fate { get; }
+        public int Fate { get; set; }
 
-        public string StrengthBonus { get; }
+        public string StrengthBonus { get; set; }
 
-        public int Honor { get; }
+        public int Honor { get; set; }
     }
 }

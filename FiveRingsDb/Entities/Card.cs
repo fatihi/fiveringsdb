@@ -4,34 +4,34 @@ namespace FiveRingsDb.Entities
 {
     public abstract class Card
     {
-        public string Id { get; }
+        public string Id { get; set; }
 
-        public string Name { get; }
+        public string Name { get; set; }
 
-        public string NameCanonical { get; }
+        public string NameCanonical { get; set; }
 
-        public IEnumerable<Trait> Traits { get; }
+        public IEnumerable<Trait> Traits { get; set; }
 
-        public IEnumerable<Keyword> Keywords { get; }
+        public IEnumerable<Keyword> Keywords { get; set; }
 
-        public Side Side { get; }
+        public Side Side { get; set; }
 
-        public int DeckLimit { get; }
+        public int DeckLimit { get; set; }
 
-        public IEnumerable<PrintedCard> PackCards { get; }
+        public IEnumerable<PrintedCard> PackCards { get; set; }
 
-        public Clan Clan { get; }
+        public Clan Clan { get; set; }
 
-        public bool IsUnique { get; }
+        public bool IsUnique { get; set; }
 
-        public Type Type { get; }
+        public Type Type { get; set; }
 
-        public bool IsRestricted { get; }
+        public bool IsRestricted { get; set; }
 
-        public string Text { get; }
+        public string Text { get; set; }
 
-        public string TextCanonical { get; }
+        public string TextCanonical { get; set; }
 
-        public RoleRestriction? RoleRestriction { get; }
+        public RoleRestriction? RoleRestriction { get; set; }
     }
 }
