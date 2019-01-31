@@ -23,7 +23,7 @@ namespace FiveRingsDb
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddEntityFrameworkNpgsql()
-                .AddDbContext<FiveRingsDbContext>()
+                .AddDbContext<FiveRingsDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("FiveRingsDb")))
                 .BuildServiceProvider();
         }
 
