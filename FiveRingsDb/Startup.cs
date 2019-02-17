@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using FiveRingsDb.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using FiveRingsDb.Models;
 
 namespace FiveRingsDb
 {
@@ -23,7 +23,7 @@ namespace FiveRingsDb
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddEntityFrameworkNpgsql()
-                .AddDbContext<FiveRingsDbContext>(options => 
+                .AddDbContext<FiveRingsDbContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("FiveRingsDb")))
                 .BuildServiceProvider();
         }
