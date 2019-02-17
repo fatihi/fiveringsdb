@@ -12,6 +12,7 @@ namespace FiveRingsDb.Entities
         [EnumMember(Value = "disguised-cavalry")] DisguisedCavalry,
         [EnumMember(Value = "limited")] Limited,
         [EnumMember(Value = "no-attachments")] NoAttachments,
+        [EnumMember(Value = "no-attachments-except-monk-or-tattoo")] NoAttachmentsExceptMonkOrTattoo,
         [EnumMember(Value = "no-attachments-except-weapons")] NoAttachmentsExceptWeapons,
         [EnumMember(Value = "no-poison-attachments")] NoPoisonAttachments,
         [EnumMember(Value = "pride")] Pride,
