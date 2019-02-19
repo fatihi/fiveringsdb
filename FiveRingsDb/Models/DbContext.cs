@@ -21,6 +21,8 @@ namespace FiveRingsDb.Models
 
         public DbSet<HoldingCard> HoldingCards { get; set; }
 
+        public DbSet<Keyword> Keywords { get; set; }
+
         public DbSet<PrintedCard> PrintedCards { get; set; }
 
         public DbSet<ProvinceCard> ProvinceCards { get; set; }
