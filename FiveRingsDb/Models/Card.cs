@@ -13,6 +13,8 @@ namespace FiveRingsDb.Models
 
         public List<Trait> Traits { get; set; }
 
+        public List<Keyword> Keywords { get; set; }
+
         public Side Side { get; set; }
 
         public int DeckLimit { get; set; }
