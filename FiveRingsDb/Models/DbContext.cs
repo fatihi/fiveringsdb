@@ -49,6 +49,11 @@ namespace FiveRingsDb.Models
 
             mb.Entity<HoldingCard>().Property(h => h.StrengthBonus).HasColumnName("HoldingStrengthBonus");
 
+            mb.Entity<Keyword>().HasIndex(k => k.Id);
+            mb.Entity<Keyword>().Property(k => k.Type).HasConversion(t => t.ToString(), t => (KeywordType)Enum.Parse(typeof(KeywordType), t));
+            mb.Entity<Keyword>().Property(k => k.Exceptions).HasConversion(e => e.Select(a => a.ToString()).ToList(), e => e.Select(a => (Trait)Enum.Parse(typeof(Trait), a)).ToList());
+            mb.Entity<Keyword>().Property(k => k.Restrictions).HasConversion(r => r.Select(a => a.ToString()).ToList(), r => r.Select(a => (Trait)Enum.Parse(typeof(Trait), a)).ToList());
+
             mb.Entity<PrintedCard>().HasIndex(p => p.Id);
             mb.Entity<PrintedCard>().Property(p => p.Pack).HasConversion(p => p.ToString(), p => (SetName)Enum.Parse(typeof(SetName), p));
 
