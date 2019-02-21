@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FiveRingsDb.Entities
+namespace FiveRingsDb.Models
 {
     public class PrintedCard
     {
@@ -8,7 +8,7 @@ namespace FiveRingsDb.Entities
         
         public string Illustrator { get; set; }
 
-        public Uri ImageUrl { get; set; }
+        public String ImageUrl { get; set; }
 
         public SetName Pack { get; set; }
 

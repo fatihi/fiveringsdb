@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace FiveRingsDb.Entities
+namespace FiveRingsDb.Models
 {
     public abstract class Card
     {
@@ -10,15 +11,15 @@ namespace FiveRingsDb.Entities
 
         public string NameCanonical { get; set; }
 
-        public IEnumerable<Trait> Traits { get; set; }
+        public List<Trait> Traits { get; set; }
 
-        public IEnumerable<Keyword> Keywords { get; set; }
+        public List<Keyword> Keywords { get; set; }
 
         public Side Side { get; set; }
 
         public int DeckLimit { get; set; }
 
-        public IEnumerable<PrintedCard> PackCards { get; set; }
+        public List<PrintedCard> PackCards { get; set; }
 
         public Clan Clan { get; set; }
 

@@ -1,9 +1,13 @@
 ﻿using System.Runtime.Serialization;
 
-namespace FiveRingsDb.Entities
+namespace FiveRingsDb.Models
 {
-    public enum Element
+    public enum RoleRestriction
     {
+        [EnumMember(Value = "keeper")]
+        Keeper,
+        [EnumMember(Value = "seeker")]
+        Seeker,
         [EnumMember(Value = "air")]
         Air,
         [EnumMember(Value = "earth")]
@@ -13,8 +17,6 @@ namespace FiveRingsDb.Entities
         [EnumMember(Value = "void")]
         Void,
         [EnumMember(Value = "water")]
-        Water,
-        [EnumMember(Value = "any")]
-        Any
+        Water
     }
 }

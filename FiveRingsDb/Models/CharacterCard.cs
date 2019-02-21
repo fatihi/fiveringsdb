@@ -1,7 +1,7 @@
-namespace FiveRingsDb.Entities
+namespace FiveRingsDb.Models
 {
     public class CharacterCard : Card
-    {
+    {        
         public int Cost { get; set; }
 
         public string Military { get; set; }

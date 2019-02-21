@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 
-namespace FiveRingsDb.Entities
+namespace FiveRingsDb.Models
 {
     public class Keyword
     {
+        public string Id { get; set; }
+        
         public KeywordType Type { get; set; }
 
         public IEnumerable<Trait> Exceptions { get; set; }

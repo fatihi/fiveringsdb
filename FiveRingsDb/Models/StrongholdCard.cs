@@ -1,4 +1,4 @@
-namespace FiveRingsDb.Entities
+namespace FiveRingsDb.Models
 {
     public class StrongholdCard : Card
     {

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace FiveRingsDb.Entities
+namespace FiveRingsDb.Models
 {
     public enum Type
     {
