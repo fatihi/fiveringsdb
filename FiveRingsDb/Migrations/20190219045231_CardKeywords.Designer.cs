@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using FiveRingsDb.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FiveRingsDb.Migrations
 {
     [DbContext(typeof(FiveRingsDbContext))]
-    partial class FiveRingsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190219045231_CardKeywords")]
+    partial class CardKeywords
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,8 +71,6 @@ namespace FiveRingsDb.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("CardId");
-
                     b.Property<List<string>>("Exceptions");
 
                     b.Property<List<string>>("Restrictions");
@@ -80,11 +80,9 @@ namespace FiveRingsDb.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CardId");
-
                     b.HasIndex("Id");
 
-                    b.ToTable("Keywords");
+                    b.ToTable("Keyword");
                 });
 
             modelBuilder.Entity("FiveRingsDb.Models.PrintedCard", b =>
@@ -221,13 +219,6 @@ namespace FiveRingsDb.Migrations
                     b.ToTable("StrongholdCard");
 
                     b.HasDiscriminator().HasValue("StrongholdCard");
-                });
-
-            modelBuilder.Entity("FiveRingsDb.Models.Keyword", b =>
-                {
-                    b.HasOne("FiveRingsDb.Models.Card")
-                        .WithMany("Keywords")
-                        .HasForeignKey("CardId");
                 });
 
             modelBuilder.Entity("FiveRingsDb.Models.PrintedCard", b =>

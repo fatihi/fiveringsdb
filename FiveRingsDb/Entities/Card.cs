@@ -12,6 +12,8 @@ namespace FiveRingsDb.Entities
 
         public IEnumerable<Trait> Traits { get; set; }
 
+        public IEnumerable<Keyword> Keywords { get; set; }
+
         public Side Side { get; set; }
 
         public int DeckLimit { get; set; }
