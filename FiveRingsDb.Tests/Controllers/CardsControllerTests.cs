@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FiveRingsDb.Controllers;
@@ -18,27 +19,38 @@ namespace FiveRingsDb.Tests.Controllers
         public void Setup()
         {
             var mockContext = SetupMock();
+            AddCards(mockContext);
             sut = new CardsController(mockContext);
+        }
+
+        private void AddCards(FiveRingsDbContext mockContext)
+        {
+            mockContext.Cards.Add(new EventCard { Id = "way-of-the-phoenix" });
         }
 
         private FiveRingsDbContext SetupMock()
         {
-            var mockContext = Substitute.For<FiveRingsDbContext>(new DbContextOptions<FiveRingsDbContext>());
+            var optionsBuilder = new DbContextOptionsBuilder();
+            optionsBuilder.UseInMemoryDatabase("cards_db");
+            return new FiveRingsDbContext(optionsBuilder.Options);
 
-            var cards = new List<Card>
-            {
-                new EventCard {Id = "way-of-the-phoenix"},
-                new AttachmentCard {Id = "fine-katana"},
-                new StrongholdCard {Id = "isawa-mori-seido"}
-            }.AsQueryable();
+            //var cards = new List<Card>
+            //{
+            //    new EventCard { Id = "way-of-the-phoenix" },
+            //    new AttachmentCard { Id = "fine-katana" },
+            //    new StrongholdCard { Id = "isawa-mori-seido" }
+            //}.AsQueryable();
 
-            var mockCards = Substitute.For<DbSet<Card>, IQueryable<Card>>();
-            ((IQueryable<Card>)mockCards).Provider.Returns(cards.Provider);
-            ((IQueryable<Card>)mockCards).Expression.Returns(cards.Expression);
-            ((IQueryable<Card>)mockCards).ElementType.Returns(cards.ElementType);
-            ((IQueryable<Card>)mockCards).GetEnumerator().Returns(cards.GetEnumerator());
+            //var mockCards = Substitute.For<DbSet<Card>, IQueryable<Card>>();
+            //((IQueryable<Card>)mockCards).Provider.Returns(cards.Provider);
+            //((IQueryable<Card>)mockCards).Expression.Returns(cards.Expression);
+            //((IQueryable<Card>)mockCards).ElementType.Returns(cards.ElementType);
+            //((IQueryable<Card>)mockCards).GetEnumerator().Returns(cards.GetEnumerator());
 
-            return mockContext;
+            //var mockContext = Substitute.For<FiveRingsDbContext>();
+            //mockContext.Cards = mockCards;
+
+            //return mockContext;
         }
 
         [Test]

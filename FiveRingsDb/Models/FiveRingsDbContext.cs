@@ -6,7 +6,7 @@ namespace FiveRingsDb.Models
 {
     public class FiveRingsDbContext : DbContext
     {
-        public FiveRingsDbContext(DbContextOptions<FiveRingsDbContext> options)
+        public FiveRingsDbContext(DbContextOptions options)
             : base(options)
         {
         }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using FiveRingsDb.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FiveRingsDb.Controllers
 {
@@ -9,24 +10,35 @@ namespace FiveRingsDb.Controllers
     [ApiController]
     public class CardsController : ControllerBase
     {
-        private readonly FiveRingsDbContext fiveRingsDbContext;
+        private readonly FiveRingsDbContext db;
 
         public CardsController(FiveRingsDbContext fiveRingsDbContext)
         {
-            this.fiveRingsDbContext = fiveRingsDbContext;
+            db = fiveRingsDbContext;
         }
 
         [HttpGet]
-        public IEnumerable<Card> GetCards()
+        public async Task<IActionResult> GetCards()
         {
-            return fiveRingsDbContext.Cards;
+            var cards = await db.Cards.ToListAsync();
+            return Ok(cards);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCard(string id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-            return NoContent();
+            var card = await db.Cards.FindAsync(id);
+            if (card == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(card);
         }
 
         [HttpGet("{id}/rulings")]
