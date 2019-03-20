@@ -30,27 +30,24 @@ namespace FiveRingsDb.Tests.Controllers
 
         private FiveRingsDbContext SetupMock()
         {
-            var optionsBuilder = new DbContextOptionsBuilder();
-            optionsBuilder.UseInMemoryDatabase("cards_db");
-            return new FiveRingsDbContext(optionsBuilder.Options);
+            var cards = new List<Card>
+            {
+                new EventCard { Id = "way-of-the-phoenix" },
+                new AttachmentCard { Id = "fine-katana" },
+                new StrongholdCard { Id = "isawa-mori-seido" }
+            }.AsQueryable();
 
-            //var cards = new List<Card>
-            //{
-            //    new EventCard { Id = "way-of-the-phoenix" },
-            //    new AttachmentCard { Id = "fine-katana" },
-            //    new StrongholdCard { Id = "isawa-mori-seido" }
-            //}.AsQueryable();
+            var mockCards = Substitute.For<DbSet<Card>, IQueryable<Card>>();
+            ((IQueryable<Card>)mockCards).Provider.Returns(cards.Provider);
+            ((IQueryable<Card>)mockCards).Expression.Returns(cards.Expression);
+            ((IQueryable<Card>)mockCards).ElementType.Returns(cards.ElementType);
+            ((IQueryable<Card>)mockCards).GetEnumerator().Returns(cards.GetEnumerator());
 
-            //var mockCards = Substitute.For<DbSet<Card>, IQueryable<Card>>();
-            //((IQueryable<Card>)mockCards).Provider.Returns(cards.Provider);
-            //((IQueryable<Card>)mockCards).Expression.Returns(cards.Expression);
-            //((IQueryable<Card>)mockCards).ElementType.Returns(cards.ElementType);
-            //((IQueryable<Card>)mockCards).GetEnumerator().Returns(cards.GetEnumerator());
+            var contextOptions = new DbContextOptions<FiveRingsDbContext>();
+            var mockContext = Substitute.For<FiveRingsDbContext>(contextOptions);
+            mockContext.Cards = mockCards;
 
-            //var mockContext = Substitute.For<FiveRingsDbContext>();
-            //mockContext.Cards = mockCards;
-
-            //return mockContext;
+            return mockContext;
         }
 
         [Test]
