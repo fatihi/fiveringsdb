@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FiveRingsDb.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CardRulingsController : ControllerBase
     {
         [HttpGet]
