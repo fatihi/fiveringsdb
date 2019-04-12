@@ -8,8 +8,8 @@ namespace FiveRingsDb.Models
         
         public KeywordType Type { get; set; }
 
-        public IEnumerable<Trait> Exceptions { get; set; }
+        public ICollection<TraitInKeywordException> TraitInKeywordExceptions { get; set; }
 
-        public IEnumerable<Trait> Restrictions { get; set; }
+        public ICollection<TraitInKeywordRestriction> TraitInKeywordRestrictions { get; set; }
     }
 }

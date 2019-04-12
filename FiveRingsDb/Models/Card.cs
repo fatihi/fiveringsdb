@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace FiveRingsDb.Models
 {
@@ -11,15 +10,15 @@ namespace FiveRingsDb.Models
 
         public string NameCanonical { get; set; }
 
-        public List<Trait> Traits { get; set; }
+        public ICollection<TraitOnCard> TraitsOnCards { get; set; }
 
-        public List<Keyword> Keywords { get; set; }
+        public ICollection<Keyword> Keywords { get; set; }
 
         public Side Side { get; set; }
 
         public int DeckLimit { get; set; }
 
-        public List<PrintedCard> PackCards { get; set; }
+        public ICollection<PrintedCard> PackCards { get; set; }
 
         public Clan Clan { get; set; }
 
