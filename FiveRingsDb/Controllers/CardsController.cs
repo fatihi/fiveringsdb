@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
-using FiveRingsDb.Models;
+using FiveRingsDb.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace FiveRingsDb.Controllers
 {
@@ -9,17 +8,17 @@ namespace FiveRingsDb.Controllers
     [ApiController]
     public class CardsController : ControllerBase
     {
-        private readonly FiveRingsDbContext db;
+        private readonly CardsRepository cardsRepository;
 
-        public CardsController(FiveRingsDbContext fiveRingsDbContext)
+        public CardsController(CardsRepository cardsRepository)
         {
-            db = fiveRingsDbContext;
+            this.cardsRepository = cardsRepository;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCards()
+        public IActionResult GetCards()
         {
-            var cards = await db.Cards.ToListAsync();
+            var cards = cardsRepository.GetCards();
             return Ok(cards);
         }
 
@@ -31,7 +30,7 @@ namespace FiveRingsDb.Controllers
                 return NotFound();
             }
 
-            var card = await db.Cards.FindAsync(id);
+            var card = await cardsRepository.GetCard(id);
             if (card == null)
             {
                 return NotFound();
