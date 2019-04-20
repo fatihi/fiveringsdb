@@ -1,4 +1,5 @@
 ﻿using FiveRingsDb.Models;
+using FiveRingsDb.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,8 @@ namespace FiveRingsDb
                 .AddDbContext<FiveRingsDbContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("FiveRingsDb")))
                 .BuildServiceProvider();
+
+            services.AddScoped<ICardsRepository, CardsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
