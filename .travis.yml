@@ -5,3 +5,6 @@ dotnet: 2.1
 script:
   - dotnet build
   - dotnet test ./FiveRingsDb.Tests
+before_install:
+  - sudo rm -vf /etc/apt/sources.list.d/*riak*
+  - sudo apt-get update
