@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using FiveRingsDb.Controllers;
 using FiveRingsDb.Models;
+using FiveRingsDb.Repositories;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -18,47 +18,41 @@ namespace FiveRingsDb.Tests.Controllers
         [SetUp]
         public void Setup()
         {
-            var mockContext = SetupMock();
-            AddCards(mockContext);
-            sut = new CardsController(mockContext);
+            ICardsRepository mockRepository = SetupRepository();
+            sut = new CardsController(mockRepository);
         }
 
-        private void AddCards(FiveRingsDbContext mockContext)
+        private static ICardsRepository SetupRepository()
         {
-            mockContext.Cards.Add(new EventCard { Id = "way-of-the-phoenix" });
+            var cardsList = CreateMockCardsList();
+            var mockRepository = Substitute.For<ICardsRepository>();
+            mockRepository.GetCards().Returns(cardsList);
+            return mockRepository;
         }
 
-        private FiveRingsDbContext SetupMock()
+        private static IList<Card> CreateMockCardsList()
         {
-            var cards = new List<Card>
+            return new List<Card>
             {
-                new EventCard { Id = "way-of-the-phoenix" },
-                new AttachmentCard { Id = "fine-katana" },
-                new StrongholdCard { Id = "isawa-mori-seido" }
-            }.AsQueryable();
-
-            var mockCards = Substitute.For<DbSet<Card>, IQueryable<Card>>();
-            ((IQueryable<Card>)mockCards).Provider.Returns(cards.Provider);
-            ((IQueryable<Card>)mockCards).Expression.Returns(cards.Expression);
-            ((IQueryable<Card>)mockCards).ElementType.Returns(cards.ElementType);
-            ((IQueryable<Card>)mockCards).GetEnumerator().Returns(cards.GetEnumerator());
-
-            var contextOptions = new DbContextOptions<FiveRingsDbContext>();
-            var mockContext = Substitute.For<FiveRingsDbContext>(contextOptions);
-            mockContext.Cards = mockCards;
-
-            return mockContext;
+                new EventCard
+                {
+                    Id = "way-of-the-phoenix"
+                }
+            };
         }
 
         [Test]
-        public void GetCards_ReturnsValues()
+        public async Task GetCards_ReturnsValues()
         {
-            var result = sut.GetCards();
-            result.Status.Should().Be(TaskStatus.RanToCompletion);
+            var result = await sut.GetCards() as OkObjectResult;
+
+            var cards = result.Value as List<Card>;
+            cards.Count.Should().Be(1);
+            cards[0].Id.Should().Be("way-of-the-phoenix");
         }
 
         [Test]
-        public void GetCard_ReturnsValues()
+        public void GetCard_ReturnsValue()
         {
             var result = sut.GetCard("");
             result.Status.Should().Be(TaskStatus.RanToCompletion);

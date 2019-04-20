@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FiveRingsDb.Repositories
 {
-    public class CardsRepository
+    public class CardsRepository : ICardsRepository
     {
         private readonly FiveRingsDbContext db;
 

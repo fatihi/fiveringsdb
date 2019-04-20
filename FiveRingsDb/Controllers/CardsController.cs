@@ -8,17 +8,17 @@ namespace FiveRingsDb.Controllers
     [ApiController]
     public class CardsController : ControllerBase
     {
-        private readonly CardsRepository cardsRepository;
+        private readonly ICardsRepository cardsRepository;
 
-        public CardsController(CardsRepository cardsRepository)
+        public CardsController(ICardsRepository cardsRepository)
         {
             this.cardsRepository = cardsRepository;
         }
 
         [HttpGet]
-        public IActionResult GetCards()
+        public async Task<IActionResult> GetCards()
         {
-            var cards = cardsRepository.GetCards();
+            var cards = await cardsRepository.GetCards();
             return Ok(cards);
         }
 
