@@ -2,7 +2,7 @@ namespace FiveRingsDb.Entities
 {
     public class AttachmentCard : Card
     {
-        public int Cost { get; set; }
+        public int? Cost { get; set; }
 
         public string MilitaryBonus { get; set; }
 

@@ -14,7 +14,7 @@ namespace FiveRingsDb.Models
         Void,
         [EnumMember(Value = "water")]
         Water,
-        [EnumMember(Value = "any")]
-        Any
+        [EnumMember(Value = "all")]
+        All
     }
 }

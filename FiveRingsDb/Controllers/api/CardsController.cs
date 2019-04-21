@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FiveRingsDb.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CardsController : ControllerBase
     {
