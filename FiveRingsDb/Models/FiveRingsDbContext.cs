@@ -1,15 +1,15 @@
-using FiveRingsDb.Models;
 using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace FiveRingsDb.Models
 {
     public class FiveRingsDbContext : DbContext
     {
-        public FiveRingsDbContext(DbContextOptions<FiveRingsDbContext> options)
-            : base(options) {}
+        public FiveRingsDbContext(DbContextOptions options)
+            : base(options)
+        {
+        }
 
         public DbSet<AttachmentCard> AttachmentCards { get; set; }
 
@@ -39,7 +39,7 @@ namespace FiveRingsDb.Models
             mb.Entity<Card>().Property(c => c.Clan).HasConversion(c => c.ToString(), c => (Clan)Enum.Parse(typeof(Clan), c));
             mb.Entity<Card>().Property(c => c.Type).HasConversion(t => t.ToString(), t => (Type)Enum.Parse(typeof(Type), t));
             mb.Entity<Card>().Property(c => c.RoleRestriction).HasConversion(r => r.ToString(), r => (RoleRestriction)Enum.Parse(typeof(RoleRestriction), r));
-            
+
             mb.Entity<AttachmentCard>().Property(a => a.Cost).HasColumnName("AttachmentCost");
             mb.Entity<AttachmentCard>().Property(a => a.InfluenceCost).HasColumnName("AttachmentInfluenceCost");
 

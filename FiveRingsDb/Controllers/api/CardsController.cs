@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using FiveRingsDb.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FiveRingsDb.Controllers
@@ -7,16 +8,35 @@ namespace FiveRingsDb.Controllers
     [ApiController]
     public class CardsController : ControllerBase
     {
+        private readonly ICardsRepository cardsRepository;
+
+        public CardsController(ICardsRepository cardsRepository)
+        {
+            this.cardsRepository = cardsRepository;
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetCards()
         {
-            return NoContent();
+            var cards = await cardsRepository.GetCards();
+            return Ok(cards);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCard(string id)
         {
-            return NoContent();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var card = await cardsRepository.GetCard(id);
+            if (card == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(card);
         }
 
         [HttpGet("{id}/rulings")]

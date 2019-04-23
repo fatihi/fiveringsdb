@@ -1,32 +1,56 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using FiveRingsDb.Controllers;
+using FiveRingsDb.Models;
+using FiveRingsDb.Repositories;
 using FluentAssertions;
+using Microsoft.AspNetCore.Mvc;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace FiveRingsDb.Tests.Controllers
 {
     public class CardsControllerTests
     {
-        private CardsController sut;
-
-        [SetUp]
-        public void Setup()
+        [Test]
+        public async Task GetCards_ReturnsValues()
         {
-            sut = new CardsController();
+            var cardsList = CreateMockCardsList();
+            var mockRepository = Substitute.For<ICardsRepository>();
+            mockRepository.GetCards().Returns(cardsList);
+            var controller = new CardsController(mockRepository);
+
+            var result = await controller.GetCards() as OkObjectResult;
+
+            var cards = result.Value as List<Card>;
+            cards.Count.Should().Be(1);
+            cards[0].Id.Should().Be("way-of-the-phoenix");
         }
 
         [Test]
-        public void GetCard_ReturnsValues()
+        public async Task GetCard_ReturnsValue()
         {
-            var result = sut.GetCard("");
-            result.Status.Should().Be(TaskStatus.RanToCompletion);
+            const string cardId = "way-of-the-phoenix";
+            var mockRepository = Substitute.For<ICardsRepository>();
+            mockRepository.GetCard(cardId).Returns(new EventCard { Id = cardId });
+            var controller = new CardsController(mockRepository);
+
+            var result = await controller.GetCard(cardId) as OkObjectResult;
+
+            var card = result.Value as Card;
+            card.Id.Should().Be(cardId);
         }
 
-        [Test]
-        public void GetCards_ReturnsValues()
+        private static IList<Card> CreateMockCardsList()
         {
-            var result = sut.GetCards();
-            result.Status.Should().Be(TaskStatus.RanToCompletion);
+            return new List<Card>
+            {
+                new EventCard
+                {
+                    Id = "way-of-the-phoenix"
+                }
+            };
         }
     }
 }
