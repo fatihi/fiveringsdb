@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FiveRingsDb.Controllers.Api
@@ -7,7 +8,7 @@ namespace FiveRingsDb.Controllers.Api
     public class CardRulingsController : ControllerBase
     {
         [HttpGet]
-        public IActionResult GetRulings()
+        public async Task<IActionResult> GetRulings()
         {
             return NoContent();
         }
