@@ -1,8 +1,10 @@
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using FiveRingsDb.Utils.JsonConverter;
+using Newtonsoft.Json;
 
 namespace FiveRingsDb.Models
 {
+    [JsonConverter(typeof(CardConverter))]
     public abstract class Card
     {
         public string Id { get; set; }

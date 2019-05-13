@@ -36,8 +36,12 @@ namespace FiveRingsDb.Models
         Condition,
         [EnumMember(Value = "courtier")]
         Courtier,
+        [EnumMember(Value = "crane")]
+        Crane,
         [EnumMember(Value = "creature")]
         Creature,
+        [EnumMember(Value = "crown-prince")]
+        CrownPrince,
         [EnumMember(Value = "curse")]
         Curse,
         [EnumMember(Value = "daimyo")]
@@ -50,6 +54,8 @@ namespace FiveRingsDb.Models
         Earth,
         [EnumMember(Value = "elemental-master")]
         ElementalMaster,
+        [EnumMember(Value = "emperor")]
+        Emperor,
         [EnumMember(Value = "engineer")]
         Engineer,
         [EnumMember(Value = "festival")]
@@ -64,6 +70,8 @@ namespace FiveRingsDb.Models
         Gaijin,
         [EnumMember(Value = "garden")]
         Garden,
+        [EnumMember(Value = "geisha")]
+        Geisha,
         [EnumMember(Value = "goblin")]
         Goblin,
         [EnumMember(Value = "heretic")]
@@ -88,12 +96,16 @@ namespace FiveRingsDb.Models
         Landmark,
         [EnumMember(Value = "library")]
         Library,
+        [EnumMember(Value = "lion")]
+        Lion,
         [EnumMember(Value = "magistrate")]
         Magistrate,
         [EnumMember(Value = "maho")]
         Maho,
         [EnumMember(Value = "mantis-clan")]
         MantisClan,
+        [EnumMember(Value = "marketplace")]
+        Marketplace,
         [EnumMember(Value = "mask")]
         Mask,
         [EnumMember(Value = "meishodo")]
@@ -150,6 +162,8 @@ namespace FiveRingsDb.Models
         Shrine,
         [EnumMember(Value = "shugenja")]
         Shugenja,
+        [EnumMember(Value = "skill")]
+        Skill,
         [EnumMember(Value = "spell")]
         Spell,
         [EnumMember(Value = "spirit")]
@@ -168,6 +182,8 @@ namespace FiveRingsDb.Models
         Temple,
         [EnumMember(Value = "trap")]
         Trap,
+        [EnumMember(Value = "unicorn")]
+        Unicorn,
         [EnumMember(Value = "void")]
         Void,
         [EnumMember(Value = "water")]
