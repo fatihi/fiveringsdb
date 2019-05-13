@@ -51,5 +51,8 @@ namespace FiveRingsDb.Models
 
         [JsonProperty("role_restriction")]
         public RoleRestriction? RoleRestriction { get; set; }
+
+        [JsonProperty("allowed_clans")]
+        public List<Clan> AllowedClans { get; set; }
     }
 }
