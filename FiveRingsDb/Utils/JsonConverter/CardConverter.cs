@@ -41,12 +41,12 @@ namespace FiveRingsDb.Utils.JsonConverter
         private Type GetCardType(JToken jsonObject)
         {
             var objectTypeString = jsonObject.First["type"].Value<string>();
-            var parseSucceeded = Enum.TryParse(objectTypeString, out Type cardType);
+            var parseSucceeded = Enum.TryParse(objectTypeString, true, out Type cardType);
 
-            //if (!parseSucceeded)
-            //{
-            //    throw new ParsingOfFileException();
-            //}
+            if (!parseSucceeded)
+            {
+                throw new ParsingOfFileException();
+            }
 
             return cardType;
         }
