@@ -10,7 +10,7 @@ namespace FiveRingsDb.Models
         [JsonProperty("fate")]
         public int Fate { get; set; }
 
-        [JsonProperty("stength_bonus")]
+        [JsonProperty("strength_bonus")]
         public string StrengthBonus { get; set; }
 
         [JsonProperty("honor")]
