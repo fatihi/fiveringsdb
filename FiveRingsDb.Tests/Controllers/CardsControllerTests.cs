@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using FiveRingsDb.Controllers;
+using FiveRingsDb.Controllers.Api;
 using FiveRingsDb.Models;
 using FiveRingsDb.Repositories;
 using FluentAssertions;
