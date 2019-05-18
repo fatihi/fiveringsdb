@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using FiveRingsDb.Controllers;
 using FiveRingsDb.Models;
@@ -14,7 +13,7 @@ namespace FiveRingsDb.Tests.Controllers
     public class CardsControllerTests
     {
         [Test]
-        public async Task GetCards_ReturnsValues()
+        public async Task GetCards_Should_ReturnAllCards()
         {
             var cardsList = CreateMockCardsList();
             var mockRepository = Substitute.For<ICardsRepository>();
@@ -24,12 +23,13 @@ namespace FiveRingsDb.Tests.Controllers
             var result = await controller.GetCards() as OkObjectResult;
 
             var cards = result.Value as List<Card>;
-            cards.Count.Should().Be(1);
-            cards[0].Id.Should().Be("way-of-the-phoenix");
+            cards.Count.Should().Be(2);
+            cards.Should().Contain(c => c.Id == "way-of-the-phoenix");
+            cards.Should().Contain(c => c.Id == "shiba-tsukune");
         }
 
         [Test]
-        public async Task GetCard_ReturnsValue()
+        public async Task GetCard_Should_ReturnCard_When_CardIdIsProvided()
         {
             const string cardId = "way-of-the-phoenix";
             var mockRepository = Substitute.For<ICardsRepository>();
@@ -49,6 +49,10 @@ namespace FiveRingsDb.Tests.Controllers
                 new EventCard
                 {
                     Id = "way-of-the-phoenix"
+                },
+                new CharacterCard()
+                {
+                    Id = "shiba-tsukune"
                 }
             };
         }
