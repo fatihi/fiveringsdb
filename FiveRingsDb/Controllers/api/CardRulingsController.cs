@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FiveRingsDb.Controllers
+namespace FiveRingsDb.Controllers.Api
 {
     [Route("api/[controller]")]
     [ApiController]
