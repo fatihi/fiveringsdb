@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace FiveRingsDb.Tests.Utils.JsonConverter
 {
-    class JsonConverterTests
+    public class JsonConverterTests
     {
         [Test]
         public void ConvertToCard_Should_Deserialize_When_CardIsEvent()
