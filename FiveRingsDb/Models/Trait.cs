@@ -176,6 +176,8 @@ namespace FiveRingsDb.Models
         Tattoo,
         [EnumMember(Value = "tattooed")]
         Tattooed,
+        [EnumMember(Value = "tea-house")]
+        TeaHouse,
         [EnumMember(Value = "technique")]
         Technique,
         [EnumMember(Value = "temple")]

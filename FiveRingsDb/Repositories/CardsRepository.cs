@@ -23,5 +23,11 @@ namespace FiveRingsDb.Repositories
         {
             return await db.Cards.FindAsync(id);
         }
+
+        public void AddCards(IEnumerable<Card> cards)
+        {
+            db.Cards.AddRange(cards);
+            db.SaveChanges();
+        }
     }
 }

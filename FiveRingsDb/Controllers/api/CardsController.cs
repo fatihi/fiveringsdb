@@ -1,5 +1,9 @@
+using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
+using FiveRingsDb.Models;
 using FiveRingsDb.Repositories;
+using FiveRingsDb.Utils.JsonConverter;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FiveRingsDb.Controllers.Api
@@ -37,6 +41,27 @@ namespace FiveRingsDb.Controllers.Api
             }
 
             return Ok(card);
+        }
+
+        [HttpGet("update")]
+        public async Task<IActionResult> UpdateCardDatabase()
+        {
+            var converter = new JsonConverter();
+            var cards = new List<Card>();
+            var directoryInfo = new DirectoryInfo("../fiveringsdb-data/json/Card");
+            var files = directoryInfo.GetFiles();
+
+            foreach (var file in files)
+            {
+                var streamReader = file.OpenText();
+                var json = streamReader.ReadToEnd();
+                var card = converter.ConvertToCard(json);
+                cards.Add(card);
+            }
+
+            cardsRepository.AddCards(cards);
+
+            return Ok();
         }
 
         [HttpGet("{id}/rulings")]
