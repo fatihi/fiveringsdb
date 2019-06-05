@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+using Type = FiveRingsDb.Models.Type;
 
 namespace FiveRingsDb.Migrations
 {
@@ -16,17 +17,37 @@ namespace FiveRingsDb.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("Npgsql:Enum:clan", "crab,crane,dragon,lion,neutral,phoenix,scorpion,unicorn")
+                .HasAnnotation("Npgsql:Enum:element", "air,earth,fire,void,water,all")
+                .HasAnnotation("Npgsql:Enum:keyword_type", "ancestral,composure,courtesy,covert,disguised,limited,no_attachments,pride,restricted,sincerity")
+                .HasAnnotation("Npgsql:Enum:set_name", "core_set,tears_of_amaterasu,for_honor_and_glory,into_the_forbidden_city,the_chrysanthemum_throne,fate_has_no_secrets,meditations_on_the_ephemeral,disciples_of_the_void,breath_of_the_kami,tainted_lands,the_fires_within,the_ebb_and_flow,all_and_nothing,elements_unbound,underhand_of_the_emperor,children_of_the_empire")
+                .HasAnnotation("Npgsql:Enum:side", "conflict,province,dynasty,role")
+                .HasAnnotation("Npgsql:Enum:trait", "academy,actor,air,army,banner,battle_maiden,battlefield,berserker,bushi,castle,cavalry,champion,city,commander,condition,courtier,crane,creature,crown_prince,curse,daimyo,dojo,duelist,earth,elemental_master,emperor,engineer,festival,fire,follower,fort,gaijin,garden,geisha,goblin,heretic,imperial,informant,item,jade,keeper,kenshinzen,kiho,laboratory,landmark,library,lion,magistrate,maho,mantis_clan,marketplace,mask,meishodo,mine,monk,mount,mythic,omen,oni,outpost,palace,peasant,philosophy,phoenix,poison,quest,ritual,river,ronin,scholar,scorpion,scout,seal,seeker,shadow,shadowlands,shinobi,shrine,shugenja,skill,spell,spirit,storyteller,tactic,tattoo,tattooed,tea_house,technique,temple,trap,unicorn,void,water,weapon,wily_trader,yojimbo")
+                .HasAnnotation("Npgsql:Enum:type", "event,province,attachment,character,holding,stronghold,role")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            modelBuilder.Entity("FiveRingsDb.Entities.TraitProperty", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Trait");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Traits");
+                });
 
             modelBuilder.Entity("FiveRingsDb.Models.Card", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Clan")
-                        .IsRequired();
+                    b.Property<List<Clan>>("AllowedClans");
+
+                    b.Property<Clan>("Clan");
 
                     b.Property<int>("DeckLimit");
 
@@ -41,19 +62,17 @@ namespace FiveRingsDb.Migrations
 
                     b.Property<string>("NameCanonical");
 
-                    b.Property<string>("RoleRestriction");
+                    b.Property<int?>("RoleRestriction");
 
-                    b.Property<string>("Side")
-                        .IsRequired();
+                    b.Property<Side>("Side");
 
                     b.Property<string>("Text");
 
                     b.Property<string>("TextCanonical");
 
-                    b.Property<List<string>>("Traits");
+                    b.Property<List<Trait>>("Traits");
 
-                    b.Property<string>("Type")
-                        .IsRequired();
+                    b.Property<Type>("Type");
 
                     b.HasKey("Id");
 
@@ -71,12 +90,11 @@ namespace FiveRingsDb.Migrations
 
                     b.Property<string>("CardId");
 
-                    b.Property<List<string>>("Exceptions");
+                    b.Property<List<Trait>>("Exceptions");
 
-                    b.Property<List<string>>("Restrictions");
+                    b.Property<List<Trait>>("Restrictions");
 
-                    b.Property<string>("Type")
-                        .IsRequired();
+                    b.Property<KeywordType>("Type");
 
                     b.HasKey("Id");
 
@@ -98,8 +116,7 @@ namespace FiveRingsDb.Migrations
 
                     b.Property<string>("ImageUrl");
 
-                    b.Property<string>("Pack")
-                        .IsRequired();
+                    b.Property<SetName>("Pack");
 
                     b.Property<string>("Position");
 
@@ -128,8 +145,6 @@ namespace FiveRingsDb.Migrations
 
                     b.Property<string>("PoliticalBonus");
 
-                    b.ToTable("AttachmentCard");
-
                     b.HasDiscriminator().HasValue("AttachmentCard");
                 });
 
@@ -149,8 +164,6 @@ namespace FiveRingsDb.Migrations
 
                     b.Property<string>("Political");
 
-                    b.ToTable("CharacterCard");
-
                     b.HasDiscriminator().HasValue("CharacterCard");
                 });
 
@@ -164,8 +177,6 @@ namespace FiveRingsDb.Migrations
                     b.Property<int?>("InfluenceCost")
                         .HasColumnName("EventInfluenceCost");
 
-                    b.ToTable("EventCard");
-
                     b.HasDiscriminator().HasValue("EventCard");
                 });
 
@@ -176,8 +187,6 @@ namespace FiveRingsDb.Migrations
                     b.Property<string>("StrengthBonus")
                         .HasColumnName("HoldingStrengthBonus");
 
-                    b.ToTable("HoldingCard");
-
                     b.HasDiscriminator().HasValue("HoldingCard");
                 });
 
@@ -185,12 +194,9 @@ namespace FiveRingsDb.Migrations
                 {
                     b.HasBaseType("FiveRingsDb.Models.Card");
 
-                    b.Property<string>("Element")
-                        .IsRequired();
+                    b.Property<Element>("Element");
 
                     b.Property<string>("Strength");
-
-                    b.ToTable("ProvinceCard");
 
                     b.HasDiscriminator().HasValue("ProvinceCard");
                 });
@@ -198,9 +204,6 @@ namespace FiveRingsDb.Migrations
             modelBuilder.Entity("FiveRingsDb.Models.RoleCard", b =>
                 {
                     b.HasBaseType("FiveRingsDb.Models.Card");
-
-
-                    b.ToTable("RoleCard");
 
                     b.HasDiscriminator().HasValue("RoleCard");
                 });
@@ -217,8 +220,6 @@ namespace FiveRingsDb.Migrations
 
                     b.Property<string>("StrengthBonus")
                         .HasColumnName("StrongholdStrengthBonus");
-
-                    b.ToTable("StrongholdCard");
 
                     b.HasDiscriminator().HasValue("StrongholdCard");
                 });
