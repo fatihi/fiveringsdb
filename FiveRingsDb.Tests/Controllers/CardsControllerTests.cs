@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using FiveRingsDb.Controllers.Api;
 using FiveRingsDb.Models;
@@ -22,8 +23,12 @@ namespace FiveRingsDb.Tests.Controllers
 
             var result = await controller.GetCards() as OkObjectResult;
 
-            var cards = result.Value as List<Card>;
-            cards.Count.Should().Be(2);
+            var response = result.Value as GetCardsResponse;
+            var cards = response.Records;
+            response.Size.Should().Be(2);
+            response.RrgVersion.Should().Be(9);
+            response.Success.Should().BeTrue();
+            cards.Count().Should().Be(2);
             cards.Should().Contain(c => c.Id == "way-of-the-phoenix");
             cards.Should().Contain(c => c.Id == "shiba-tsukune");
         }
