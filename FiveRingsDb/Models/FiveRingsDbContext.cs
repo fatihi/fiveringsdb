@@ -44,14 +44,6 @@ namespace FiveRingsDb.Models
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
-            mb.ForNpgsqlHasEnum<Side>();
-            mb.ForNpgsqlHasEnum<Clan>();
-            mb.ForNpgsqlHasEnum<Type>();
-            mb.ForNpgsqlHasEnum<KeywordType>();
-            mb.ForNpgsqlHasEnum<Trait>();
-            mb.ForNpgsqlHasEnum<SetName>();
-            mb.ForNpgsqlHasEnum<Element>();
-
             mb.Entity<Card>().HasIndex(c => c.Id);
 
             mb.Entity<AttachmentCard>().Property(a => a.Cost).HasColumnName("AttachmentCost");

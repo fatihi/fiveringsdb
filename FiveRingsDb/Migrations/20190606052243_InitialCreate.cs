@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using FiveRingsDb.Models;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FiveRingsDb.Migrations
 {
@@ -9,15 +8,6 @@ namespace FiveRingsDb.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterDatabase()
-                .Annotation("Npgsql:Enum:clan", "crab,crane,dragon,lion,neutral,phoenix,scorpion,unicorn")
-                .Annotation("Npgsql:Enum:element", "air,earth,fire,void,water,all")
-                .Annotation("Npgsql:Enum:keyword_type", "ancestral,composure,courtesy,covert,disguised,limited,no_attachments,pride,restricted,sincerity")
-                .Annotation("Npgsql:Enum:set_name", "core_set,tears_of_amaterasu,for_honor_and_glory,into_the_forbidden_city,the_chrysanthemum_throne,fate_has_no_secrets,meditations_on_the_ephemeral,disciples_of_the_void,breath_of_the_kami,tainted_lands,the_fires_within,the_ebb_and_flow,all_and_nothing,elements_unbound,underhand_of_the_emperor,children_of_the_empire")
-                .Annotation("Npgsql:Enum:side", "conflict,province,dynasty,role")
-                .Annotation("Npgsql:Enum:trait", "academy,actor,air,army,banner,battle_maiden,battlefield,berserker,bushi,castle,cavalry,champion,city,commander,condition,courtier,crane,creature,crown_prince,curse,daimyo,dojo,duelist,earth,elemental_master,emperor,engineer,festival,fire,follower,fort,gaijin,garden,geisha,goblin,heretic,imperial,informant,item,jade,keeper,kenshinzen,kiho,laboratory,landmark,library,lion,magistrate,maho,mantis_clan,marketplace,mask,meishodo,mine,monk,mount,mythic,omen,oni,outpost,palace,peasant,philosophy,phoenix,poison,quest,ritual,river,ronin,scholar,scorpion,scout,seal,seeker,shadow,shadowlands,shinobi,shrine,shugenja,skill,spell,spirit,storyteller,tactic,tattoo,tattooed,tea_house,technique,temple,trap,unicorn,void,water,weapon,wily_trader,yojimbo")
-                .Annotation("Npgsql:Enum:type", "event,province,attachment,character,holding,stronghold,role");
-
             migrationBuilder.CreateTable(
                 name: "Cards",
                 columns: table => new
@@ -59,19 +49,6 @@ namespace FiveRingsDb.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cards", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Traits",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    Trait = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Traits", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -151,9 +128,6 @@ namespace FiveRingsDb.Migrations
 
             migrationBuilder.DropTable(
                 name: "PrintedCards");
-
-            migrationBuilder.DropTable(
-                name: "Traits");
 
             migrationBuilder.DropTable(
                 name: "Cards");
