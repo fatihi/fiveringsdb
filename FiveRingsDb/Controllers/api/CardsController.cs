@@ -30,13 +30,6 @@ namespace FiveRingsDb.Controllers.Api
                 Records = cards,
                 Success = true,
             };
-            //var response = new
-            //{
-            //    rrgVersion = "9",
-            //    records = cards,
-            //    size = cards.Count(),
-            //    success = true,
-            //};
 
             return Ok(response);
         }
