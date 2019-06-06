@@ -1,10 +1,11 @@
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using FiveRingsDb.Models;
 using FiveRingsDb.Repositories;
-using FiveRingsDb.Utils.JsonConverter;
 using Microsoft.AspNetCore.Mvc;
+using JsonConverter = FiveRingsDb.Utils.JsonConverter.JsonConverter;
 
 namespace FiveRingsDb.Controllers.Api
 {
@@ -23,7 +24,21 @@ namespace FiveRingsDb.Controllers.Api
         public async Task<IActionResult> GetCards()
         {
             var cards = await cardsRepository.GetCards();
-            return Ok(cards);
+            var response = new GetCardsResponse
+            {
+                RrgVersion = 9,
+                Records = cards,
+                Success = true,
+            };
+            //var response = new
+            //{
+            //    rrgVersion = "9",
+            //    records = cards,
+            //    size = cards.Count(),
+            //    success = true,
+            //};
+
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
