@@ -5,7 +5,6 @@ using System.Linq;
 using FiveRingsDb.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Type = FiveRingsDb.Models.Type;
 
 namespace FiveRingsDb.Utils.JsonConverter
 {
@@ -35,10 +34,10 @@ namespace FiveRingsDb.Utils.JsonConverter
             return JArray.Load(reader);
         }
 
-        private Type GetCardType(JToken jsonObject)
+        private CardType GetCardType(JToken jsonObject)
         {
             var objectTypeString = jsonObject.First["type"].Value<string>();
-            var parseSucceeded = Enum.TryParse(objectTypeString, true, out Type cardType);
+            var parseSucceeded = Enum.TryParse(objectTypeString, true, out CardType cardType);
 
             if (!parseSucceeded)
             {
@@ -48,23 +47,23 @@ namespace FiveRingsDb.Utils.JsonConverter
             return cardType;
         }
 
-        private Card DeserializeObject(Type cardType, IEnumerable jsonObject)
+        private Card DeserializeObject(CardType cardType, IEnumerable jsonObject)
         {
             switch (cardType)
             {
-                case Type.Attachment:
+                case CardType.Attachment:
                     return JsonConvert.DeserializeObject<IEnumerable<AttachmentCard>>(jsonObject.ToString(), SpecifiedSubclassConversion).First();
-                case Type.Character:
+                case CardType.Character:
                     return JsonConvert.DeserializeObject<IEnumerable<CharacterCard>>(jsonObject.ToString(), SpecifiedSubclassConversion).First();
-                case Type.Event:
+                case CardType.Event:
                     return JsonConvert.DeserializeObject<IEnumerable<EventCard>>(jsonObject.ToString(), SpecifiedSubclassConversion).First();
-                case Type.Holding:
+                case CardType.Holding:
                     return JsonConvert.DeserializeObject<IEnumerable<HoldingCard>>(jsonObject.ToString(), SpecifiedSubclassConversion).First();
-                case Type.Province:
+                case CardType.Province:
                     return JsonConvert.DeserializeObject<IEnumerable<ProvinceCard>>(jsonObject.ToString(), SpecifiedSubclassConversion).First();
-                case Type.Role:
+                case CardType.Role:
                     return JsonConvert.DeserializeObject<IEnumerable<RoleCard>>(jsonObject.ToString(), SpecifiedSubclassConversion).First();
-                case Type.Stronghold:
+                case CardType.Stronghold:
                     return JsonConvert.DeserializeObject<IEnumerable<StrongholdCard>>(jsonObject.ToString(), SpecifiedSubclassConversion).First();
                 default:
                     throw new CardTypeNotImplementedException();

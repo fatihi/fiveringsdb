@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using FiveRingsDb.Utils.JsonConverter;
 using Newtonsoft.Json;
+using static System.String;
 
 namespace FiveRingsDb.Models
 {
@@ -14,7 +15,7 @@ namespace FiveRingsDb.Models
         public string Name { get; set; }
 
         [JsonProperty("name_canocial")]
-        public string NameCanonical { get; set; }
+        public string NameCanonical => Empty;
 
         [JsonProperty("traits")]
         public List<Trait> Traits { get; set; }
@@ -38,7 +39,7 @@ namespace FiveRingsDb.Models
         public bool IsUnique { get; set; }
 
         [JsonProperty("type")]
-        public Type Type { get; set; }
+        public CardType CardType { get; set; }
 
         [JsonProperty("is_restricted")]
         public bool IsRestricted { get; set; }
@@ -47,7 +48,7 @@ namespace FiveRingsDb.Models
         public string Text { get; set; }
 
         [JsonProperty("text_canonical")]
-        public string TextCanonical { get; set; }
+        public string TextCanonical => Empty;
 
         [JsonProperty("role_restriction")]
         public RoleRestriction? RoleRestriction { get; set; }

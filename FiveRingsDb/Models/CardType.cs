@@ -2,7 +2,7 @@
 
 namespace FiveRingsDb.Models
 {
-    public enum Type
+    public enum CardType
     {
         [EnumMember(Value = "event")]
         Event,
