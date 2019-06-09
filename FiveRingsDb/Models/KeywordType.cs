@@ -23,6 +23,6 @@ namespace FiveRingsDb.Models
         [EnumMember(Value = "restricted")]
         Restricted,
         [EnumMember(Value = "sincerity")]
-        Sincerity
+        Sincerity,
     }
 }

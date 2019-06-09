@@ -19,6 +19,6 @@ namespace FiveRingsDb.Models
         [EnumMember(Value = "Scorpion")]
         Scorpion,
         [EnumMember(Value = "Unicorn")]
-        Unicorn
+        Unicorn,
     }
 }

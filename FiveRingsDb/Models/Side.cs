@@ -11,6 +11,6 @@ namespace FiveRingsDb.Models
         [EnumMember(Value = "dynasty")]
         Dynasty,
         [EnumMember(Value = "role")]
-        Role
+        Role,
     }
 }

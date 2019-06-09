@@ -51,7 +51,7 @@ namespace FiveRingsDb.Migrations
                     InfluencePool = table.Column<int>(nullable: true),
                     Fate = table.Column<int>(nullable: true),
                     StrongholdStrengthBonus = table.Column<string>(nullable: true),
-                    Honor = table.Column<int>(nullable: true)
+                    Honor = table.Column<int>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -66,7 +66,7 @@ namespace FiveRingsDb.Migrations
                     Type = table.Column<KeywordType>(nullable: false),
                     Exceptions = table.Column<List<Trait>>(nullable: true),
                     Restrictions = table.Column<List<Trait>>(nullable: true),
-                    CardId = table.Column<string>(nullable: true)
+                    CardId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -89,7 +89,7 @@ namespace FiveRingsDb.Migrations
                     Pack = table.Column<SetName>(nullable: false),
                     Position = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
-                    CardId = table.Column<string>(nullable: true)
+                    CardId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
