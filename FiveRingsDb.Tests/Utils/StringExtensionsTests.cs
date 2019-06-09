@@ -9,6 +9,10 @@ namespace FiveRingsDb.Tests.Utils
         [TestCase("Blackmail", "blackmail")]
         [TestCase("A Fate Worse Than Death", "a fate worse than death")]
         [TestCase("Ancestral Daishō", "ancestral daisho")]
+        [TestCase("Banzai!", "banzai!")]
+        [TestCase("Bayushi's Whisperers", "bayushi's whisperers")]
+        [TestCase("Blade of 10,000 Battles", "blade of 10,000 battles")]
+        [TestCase("Kirei-ko", "kirei-ko")]
         public void ToCanonical_Should_ConvertNameToCanonical(string name, string expected)
         {
             var result = name.ToCanonical();
@@ -26,10 +30,6 @@ namespace FiveRingsDb.Tests.Utils
         {
             var result = name.ToCanonical();
 
-            if (result.Length > 140)
-            {
-                var x = result.Substring(140);
-            }
             result.Should().BeEquivalentTo(expected);
         }
     }

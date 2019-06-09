@@ -11,6 +11,7 @@ namespace FiveRingsDb.Utils
             input = RemoveHtmlTags(input);
             input = Lowercase(input);
             input = RemoveDiacritics(input);
+            input = ReplaceDashes(input);
             input = TrimDashes(input);
             input = RemoveDoubleDashes(input);
 
@@ -44,6 +45,11 @@ namespace FiveRingsDb.Utils
             }
 
             return sb.ToString().Normalize(NormalizationForm.FormC);
+        }
+
+        private static string ReplaceDashes(string input)
+        {
+            return input.Replace('–', '-');
         }
 
         private static string TrimDashes(string input)
