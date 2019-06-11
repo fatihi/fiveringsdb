@@ -1,5 +1,6 @@
 ﻿using FiveRingsDb.Models;
 using FiveRingsDb.Repositories;
+using FiveRingsDb.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +36,7 @@ namespace FiveRingsDb
                 .BuildServiceProvider();
 
             services.AddScoped<ICardsRepository, CardsRepository>();
+            services.AddSingleton<IFileReader, FileReader>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

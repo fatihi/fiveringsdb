@@ -1,11 +1,6 @@
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Threading.Tasks;
-using FiveRingsDb.Models;
 using FiveRingsDb.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using JsonConverter = FiveRingsDb.Utils.JsonConverter.JsonConverter;
 
 namespace FiveRingsDb.Controllers.Api
 {

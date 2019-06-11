@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using FiveRingsDb.Models;
-using FiveRingsDb.Utils.JsonConverter;
+using FiveRingsDb.Utils;
 using Microsoft.EntityFrameworkCore;
 
 namespace FiveRingsDb.Repositories
 {
     public class CardsRepository : ICardsRepository
     {
-        private const string JsonDataPath = "../fiveringsdb-data/json/Card";
         private readonly FiveRingsDbContext db;
+        private readonly IFileReader fileReader;
 
-        public CardsRepository(FiveRingsDbContext fiveRingsDbContext)
+        public CardsRepository(FiveRingsDbContext fiveRingsDbContext, IFileReader fileReader)
         {
             db = fiveRingsDbContext;
+            this.fileReader = fileReader;
         }
 
         public async Task<IEnumerable<Card>> GetCards()
@@ -35,18 +35,7 @@ namespace FiveRingsDb.Repositories
 
         public void UpdateCardDatabase()
         {
-            var converter = new JsonConverter();
-            var cards = new List<Card>();
-            var directoryInfo = new DirectoryInfo(JsonDataPath);
-            var files = directoryInfo.GetFiles();
-
-            foreach (var file in files)
-            {
-                var streamReader = file.OpenText();
-                var json = streamReader.ReadToEnd();
-                var card = converter.ConvertToCard(json);
-                cards.Add(card);
-            }
+            var cards = fileReader.GetCardsFromJson();
 
             AddCards(cards);
         }
