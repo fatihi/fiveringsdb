@@ -17,10 +17,12 @@ namespace FiveRingsDb.Utils
 
             foreach (var file in files)
             {
-                var streamReader = file.OpenText();
-                var json = streamReader.ReadToEnd();
-                var card = converter.ConvertToCard(json);
-                cards.Add(card);
+                using (var streamReader = file.OpenText())
+                {
+                    var json = streamReader.ReadToEnd();
+                    var card = converter.ConvertToCard(json);
+                    cards.Add(card);
+                }
             }
 
             return cards;
