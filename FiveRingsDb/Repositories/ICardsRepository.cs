@@ -10,8 +10,6 @@ namespace FiveRingsDb.Repositories
 
         Task<Card> GetCard(string id);
 
-        void AddCards(IEnumerable<Card> cards);
-
         void UpdateCardDatabase();
     }
 }

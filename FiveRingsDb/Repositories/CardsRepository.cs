@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FiveRingsDb.Repositories
 {
-    public class CardsRepository : ICardsRepository
+    internal class CardsRepository : ICardsRepository
     {
         private readonly FiveRingsDbContext db;
         private readonly IFileReader fileReader;
@@ -27,17 +27,17 @@ namespace FiveRingsDb.Repositories
             return await db.Cards.FindAsync(id);
         }
 
-        public void AddCards(IEnumerable<Card> cards)
-        {
-            db.Cards.AddRange(cards);
-            db.SaveChanges();
-        }
-
         public void UpdateCardDatabase()
         {
             var cards = fileReader.GetCardsFromJson();
 
             AddCards(cards);
+        }
+
+        private void AddCards(IEnumerable<Card> cards)
+        {
+            db.Cards.AddRange(cards);
+            db.SaveChanges();
         }
     }
 }
