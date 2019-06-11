@@ -42,7 +42,7 @@ namespace FiveRingsDb.Utils.JsonConverter
 
             if (!parseSucceeded)
             {
-                throw new ParsingOfFileException();
+                throw new FileParsingException();
             }
 
             return cardType;
