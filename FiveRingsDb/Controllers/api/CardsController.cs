@@ -55,20 +55,7 @@ namespace FiveRingsDb.Controllers.Api
         [HttpGet("update")]
         public async Task<IActionResult> UpdateCardDatabase()
         {
-            var converter = new JsonConverter();
-            var cards = new List<Card>();
-            var directoryInfo = new DirectoryInfo("../fiveringsdb-data/json/Card");
-            var files = directoryInfo.GetFiles();
-
-            foreach (var file in files)
-            {
-                var streamReader = file.OpenText();
-                var json = streamReader.ReadToEnd();
-                var card = converter.ConvertToCard(json);
-                cards.Add(card);
-            }
-
-            cardsRepository.AddCards(cards);
+            cardsRepository.UpdateCardDatabase();
 
             return Ok();
         }
