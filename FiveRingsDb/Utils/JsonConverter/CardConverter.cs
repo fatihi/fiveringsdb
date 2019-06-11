@@ -15,10 +15,7 @@ namespace FiveRingsDb.Utils.JsonConverter
 
         public override bool CanWrite => false;
 
-        public override bool CanConvert(System.Type objectType)
-        {
-            return objectType == typeof(Card);
-        }
+        public override bool CanConvert(System.Type objectType) => objectType == typeof(Card);
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
