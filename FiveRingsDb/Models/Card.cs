@@ -49,7 +49,7 @@ namespace FiveRingsDb.Models
         public string Text { get; set; }
 
         [JsonProperty("text_canonical")]
-        public string TextCanonical => String.Empty;
+        public string TextCanonical => Text.ToCanonical();
 
         [JsonProperty("role_restriction")]
         public RoleRestriction? RoleRestriction { get; set; }

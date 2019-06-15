@@ -8,6 +8,11 @@ namespace FiveRingsDb.Utils
     {
         public static string ToCanonical(this string input)
         {
+            if (input == null)
+            {
+                return null;
+            }
+
             input = RemoveHtmlTags(input);
             input = Lowercase(input);
             input = RemoveDiacritics(input);

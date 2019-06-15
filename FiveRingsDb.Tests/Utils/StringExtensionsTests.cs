@@ -32,5 +32,15 @@ namespace FiveRingsDb.Tests.Utils
 
             result.Should().BeEquivalentTo(expected);
         }
+
+        [Test]
+        public void ToCanonical_Should_ReturnEmptyString_When_InputIsNull()
+        {
+            const string input = null;
+
+            var result = input.ToCanonical();
+
+            result.Should().BeNull();
+        }
     }
 }
