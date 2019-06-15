@@ -30,7 +30,6 @@ namespace FiveRingsDb.Repositories
         public void UpdateCardDatabase()
         {
             var cards = fileReader.GetCardsFromJson();
-
             AddCards(cards);
         }
 
