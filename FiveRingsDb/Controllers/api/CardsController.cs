@@ -8,6 +8,7 @@ namespace FiveRingsDb.Controllers.Api
     [ApiController]
     public class CardsController : ControllerBase
     {
+        private const int CURRENT_RRG_VERSION = 9;
         private readonly ICardsRepository cardsRepository;
 
         public CardsController(ICardsRepository cardsRepository)
@@ -19,7 +20,14 @@ namespace FiveRingsDb.Controllers.Api
         public async Task<IActionResult> GetCards()
         {
             var cards = await cardsRepository.GetCards();
-            return Ok(cards);
+            var response = new GetCardsResponse
+            {
+                RrgVersion = CURRENT_RRG_VERSION,
+                Records = cards,
+                Success = true,
+            };
+
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
@@ -37,6 +45,14 @@ namespace FiveRingsDb.Controllers.Api
             }
 
             return Ok(card);
+        }
+
+        [HttpGet("update")]
+        public async Task<IActionResult> UpdateCardDatabase()
+        {
+            cardsRepository.UpdateCardDatabase();
+
+            return Ok();
         }
 
         [HttpGet("{id}/rulings")]

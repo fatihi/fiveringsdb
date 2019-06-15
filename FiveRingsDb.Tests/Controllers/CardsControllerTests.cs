@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using FiveRingsDb.Controllers.Api;
 using FiveRingsDb.Models;
@@ -12,8 +13,10 @@ namespace FiveRingsDb.Tests.Controllers
 {
     public class CardsControllerTests
     {
+        private const int CURRENT_RRG_VERSION = 9;
+
         [Test]
-        public async Task GetCards_ReturnsValues()
+        public async Task GetCards_Should_ReturnAllCards()
         {
             var cardsList = CreateMockCardsList();
             var mockRepository = Substitute.For<ICardsRepository>();
@@ -22,13 +25,18 @@ namespace FiveRingsDb.Tests.Controllers
 
             var result = await controller.GetCards() as OkObjectResult;
 
-            var cards = result.Value as List<Card>;
-            cards.Count.Should().Be(1);
-            cards[0].Id.Should().Be("way-of-the-phoenix");
+            var response = result.Value as GetCardsResponse;
+            var cards = response.Records;
+            response.Size.Should().Be(2);
+            response.RrgVersion.Should().Be(CURRENT_RRG_VERSION);
+            response.Success.Should().BeTrue();
+            cards.Count().Should().Be(2);
+            cards.Should().Contain(c => c.Id == "way-of-the-phoenix");
+            cards.Should().Contain(c => c.Id == "shiba-tsukune");
         }
 
         [Test]
-        public async Task GetCard_ReturnsValue()
+        public async Task GetCard_Should_ReturnCard_When_CardIdIsProvided()
         {
             const string cardId = "way-of-the-phoenix";
             var mockRepository = Substitute.For<ICardsRepository>();
@@ -48,6 +56,10 @@ namespace FiveRingsDb.Tests.Controllers
                 new EventCard
                 {
                     Id = "way-of-the-phoenix"
+                },
+                new CharacterCard()
+                {
+                    Id = "shiba-tsukune"
                 }
             };
         }
