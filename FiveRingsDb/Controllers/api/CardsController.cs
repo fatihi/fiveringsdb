@@ -8,7 +8,7 @@ namespace FiveRingsDb.Controllers.Api
     [ApiController]
     public class CardsController : ControllerBase
     {
-        private const int RrgVersion = 9;
+        private const int CURRENT_RRG_VERSION = 9;
         private readonly ICardsRepository cardsRepository;
 
         public CardsController(ICardsRepository cardsRepository)
@@ -22,7 +22,7 @@ namespace FiveRingsDb.Controllers.Api
             var cards = await cardsRepository.GetCards();
             var response = new GetCardsResponse
             {
-                RrgVersion = RrgVersion,
+                RrgVersion = CURRENT_RRG_VERSION,
                 Records = cards,
                 Success = true,
             };

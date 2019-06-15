@@ -13,6 +13,8 @@ namespace FiveRingsDb.Tests.Controllers
 {
     public class CardsControllerTests
     {
+        private const int CURRENT_RRG_VERSION = 9;
+
         [Test]
         public async Task GetCards_Should_ReturnAllCards()
         {
@@ -26,7 +28,7 @@ namespace FiveRingsDb.Tests.Controllers
             var response = result.Value as GetCardsResponse;
             var cards = response.Records;
             response.Size.Should().Be(2);
-            response.RrgVersion.Should().Be(9);
+            response.RrgVersion.Should().Be(CURRENT_RRG_VERSION);
             response.Success.Should().BeTrue();
             cards.Count().Should().Be(2);
             cards.Should().Contain(c => c.Id == "way-of-the-phoenix");
