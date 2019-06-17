@@ -37,19 +37,19 @@ namespace FiveRingsDb.Utils
 
         private static string RemoveDiacritics(string input)
         {
-            var strFormD = input.Normalize(NormalizationForm.FormD);
-            var sb = new StringBuilder();
+            var normalizedInput = input.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder();
 
-            foreach (var str in strFormD)
+            foreach (var str in normalizedInput)
             {
-                var uc = CharUnicodeInfo.GetUnicodeCategory(str);
-                if (uc != UnicodeCategory.NonSpacingMark)
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(str);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
                 {
-                    sb.Append(str);
+                    stringBuilder.Append(str);
                 }
             }
 
-            return sb.ToString().Normalize(NormalizationForm.FormC);
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
 
         private static string ReplaceDashes(string input)
