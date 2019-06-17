@@ -195,6 +195,6 @@ namespace FiveRingsDb.Models
         [EnumMember(Value = "wily-trader")]
         WilyTrader,
         [EnumMember(Value = "yojimbo")]
-        Yojimbo,
+        Yojimbo
     }
 }

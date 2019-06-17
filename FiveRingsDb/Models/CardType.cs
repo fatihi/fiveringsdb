@@ -17,6 +17,6 @@ namespace FiveRingsDb.Models
         [EnumMember(Value = "stronghold")]
         Stronghold,
         [EnumMember(Value = "role")]
-        Role,
+        Role
     }
 }

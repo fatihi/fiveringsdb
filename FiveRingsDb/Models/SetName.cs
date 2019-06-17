@@ -35,6 +35,6 @@ namespace FiveRingsDb.Models
         [EnumMember(Value="underhand-of-the-emperor")]
         UnderhandOfTheEmperor,
         [EnumMember(Value="children-of-the-empire")]
-        ChildrenOfTheEmpire,
+        ChildrenOfTheEmpire
     }
 }
