@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Type = FiveRingsDb.Models.Type;
 
 namespace FiveRingsDb.Migrations
 {
@@ -17,6 +16,13 @@ namespace FiveRingsDb.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("Npgsql:Enum:card_type", "event,province,attachment,character,holding,stronghold,role")
+                .HasAnnotation("Npgsql:Enum:clan", "crab,crane,dragon,lion,neutral,phoenix,scorpion,unicorn")
+                .HasAnnotation("Npgsql:Enum:element", "air,earth,fire,void,water,all")
+                .HasAnnotation("Npgsql:Enum:keyword_type", "ancestral,composure,courtesy,covert,disguised,limited,no_attachments,pride,restricted,sincerity")
+                .HasAnnotation("Npgsql:Enum:set_name", "core_set,tears_of_amaterasu,for_honor_and_glory,into_the_forbidden_city,the_chrysanthemum_throne,fate_has_no_secrets,meditations_on_the_ephemeral,disciples_of_the_void,breath_of_the_kami,tainted_lands,the_fires_within,the_ebb_and_flow,all_and_nothing,elements_unbound,underhand_of_the_emperor,children_of_the_empire")
+                .HasAnnotation("Npgsql:Enum:side", "conflict,province,dynasty,role")
+                .HasAnnotation("Npgsql:Enum:trait", "academy,actor,air,army,banner,battle_maiden,battlefield,berserker,bushi,castle,cavalry,champion,city,commander,condition,courtier,crane,creature,crown_prince,curse,daimyo,dojo,duelist,earth,elemental_master,emperor,engineer,festival,fire,follower,fort,gaijin,garden,geisha,goblin,heretic,imperial,informant,item,jade,keeper,kenshinzen,kiho,laboratory,landmark,library,lion,magistrate,maho,mantis_clan,marketplace,mask,meishodo,mine,monk,mount,mythic,omen,oni,outpost,palace,peasant,philosophy,phoenix,poison,quest,ritual,river,ronin,scholar,scorpion,scout,seal,seeker,shadow,shadowlands,shinobi,shrine,shugenja,skill,spell,spirit,storyteller,tactic,tattoo,tattooed,tea_house,technique,temple,trap,unicorn,void,water,weapon,wily_trader,yojimbo")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
@@ -27,6 +33,8 @@ namespace FiveRingsDb.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<List<Clan>>("AllowedClans");
+
+                    b.Property<CardType>("CardType");
 
                     b.Property<Clan>("Clan");
 
@@ -41,19 +49,13 @@ namespace FiveRingsDb.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("NameCanonical");
-
                     b.Property<int?>("RoleRestriction");
 
                     b.Property<Side>("Side");
 
                     b.Property<string>("Text");
 
-                    b.Property<string>("TextCanonical");
-
                     b.Property<List<Trait>>("Traits");
-
-                    b.Property<Type>("Type");
 
                     b.HasKey("Id");
 

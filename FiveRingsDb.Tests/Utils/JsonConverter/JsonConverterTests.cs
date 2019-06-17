@@ -62,7 +62,7 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
             card.Text.Should()
                 .Be(
                     "<b>Action:</b> Choose a ring and an opponent – that player cannot declare conflicts of that ring's element this phase. (Max 1 per phase.)");
-            card.Type.Should().Be(Type.Event);
+            card.CardType.Should().Be(CardType.Event);
             card.IsUnique.Should().BeFalse();
         }
 
@@ -126,7 +126,7 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
                     "<b>Action:</b> Bow this stronghold, choose a character – that character gets +2 glory until the end of the phase.");
             card.Traits.Should().HaveCount(1);
             card.Traits.First().Should().Be(Trait.Shrine);
-            card.Type.Should().Be(Type.Stronghold);
+            card.CardType.Should().Be(CardType.Stronghold);
             card.IsUnique.Should().BeTrue();
         }
 
@@ -204,7 +204,7 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
             card.Traits.Should().HaveCount(2);
             card.Traits.Should().Contain(Trait.Jade);
             card.Traits.Should().Contain(Trait.Weapon);
-            card.Type.Should().Be(Type.Attachment);
+            card.CardType.Should().Be(CardType.Attachment);
             card.IsUnique.Should().Be(false);
         }
 
@@ -272,7 +272,7 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
             card.Traits.Should().Contain(Trait.Bushi);
             card.Traits.Should().Contain(Trait.Cavalry);
             card.Traits.Should().Contain(Trait.Champion);
-            card.Type.Should().Be(Type.Character);
+            card.CardType.Should().Be(CardType.Character);
             card.IsUnique.Should().BeTrue();
         }
 
@@ -345,7 +345,7 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
                     "<b>Action:</b> During a conflict, sacrifice this holding. Choose a character you control – move that character to the conflict or home from the conflict.");
             card.Traits.Should().HaveCount(1);
             card.Traits.Should().Contain(Trait.Battlefield);
-            card.Type.Should().Be(Type.Holding);
+            card.CardType.Should().Be(CardType.Holding);
             card.IsUnique.Should().BeFalse();
         }
 
@@ -407,7 +407,7 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
                     "<b>Action:</b> During a conflict, lose 1 honor and choose a participating character you control – move that character home. (Limit twice per round.)");
             card.Traits.Should().HaveCount(1);
             card.Traits.Should().Contain(Trait.Dojo);
-            card.Type.Should().Be(Type.Province);
+            card.CardType.Should().Be(CardType.Province);
             card.IsUnique.Should().BeTrue();
         }
 
@@ -481,7 +481,7 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
             card.Traits.Should().HaveCount(2);
             card.Traits.Should().Contain(Trait.Seeker);
             card.Traits.Should().Contain(Trait.Void);
-            card.Type.Should().Be(Type.Role);
+            card.CardType.Should().Be(CardType.Role);
             card.IsUnique.Should().BeFalse();
         }
     }
