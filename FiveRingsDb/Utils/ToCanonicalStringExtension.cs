@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace FiveRingsDb.Utils
 {
-    public static class StringExtensions
+    public static class ToCanonicalStringExtension
     {
         public static string ToCanonical(this string input)
         {

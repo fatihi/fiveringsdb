@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace FiveRingsDb.Tests.Utils
 {
-    public class StringExtensionsTests
+    public class ToCanonicalStringExtensionTests
     {
         [TestCase("Blackmail", "blackmail")]
         [TestCase("A Fate Worse Than Death", "a fate worse than death")]
