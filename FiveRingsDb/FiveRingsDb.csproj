@@ -26,4 +26,9 @@
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="ClientScripts\package-lock.json" />
+    <_ContentIncludedByDefault Remove="ClientScripts\package.json" />
+  </ItemGroup>
+
 </Project>
