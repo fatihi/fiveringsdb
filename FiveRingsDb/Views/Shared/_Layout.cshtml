@@ -21,7 +21,7 @@
             <div class="navbar-collapse collapse d-md-inline-flex flex-md-row-reverse">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Cards">Cards</a>
+                        @Html.ActionLink("Cards", "Index", "Cards", null, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">Decks</a>

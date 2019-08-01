@@ -21,7 +21,7 @@
         @foreach (var card in Model.Cards)
         {
             <tr>
-                <td>@card.Name</td>
+                <td>@Html.ActionLink(card.Name, "Card", "Cards", new { id = card.Id })</td>
                 <td>@card.Clan</td>
                 <td>@card.CardType</td>
                 <td><span>@string.Join(", ", card.Traits)</span></td>

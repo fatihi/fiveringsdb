@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FiveRingsDb.Controllers
 {
+    [Route("[controller]")]
     public class CardsController : Controller
     {
         private readonly ICardsRepository cardsRepository;
@@ -25,6 +26,13 @@ namespace FiveRingsDb.Controllers
             };
 
             return View(viewModel);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Card(string id)
+        {
+            var card = await cardsRepository.GetCard(id);
+            return View(card);
         }
     }
 }
