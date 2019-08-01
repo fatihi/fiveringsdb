@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using FiveRingsDb.Models;
 
@@ -51,32 +53,41 @@ namespace FiveRingsDb.Views.Cards
         {
             var result = new StringBuilder("hidden-sm-down fa fa-fw ");
 
-            switch (card.CardType)
-            {
-                case CardType.Event:
-                    result.Append("fa-bolt ");
-                    break;
-                case CardType.Province:
-                    result.Append("fa-map-marker ");
-                    break;
-                case CardType.Attachment:
-                    result.Append("fa-paperclip ");
-                    break;
-                case CardType.Character:
-                    result.Append("fa-user ");
-                    break;
-                case CardType.Holding:
-                    result.Append("fa-home ");
-                    break;
-                case CardType.Stronghold:
-                    result.Append("fa-university ");
-                    break;
-                case CardType.Role:
-                    result.Append("fa-asterisk ");
-                    break;
-            }
+            var iconType = GetIconType(card.CardType);
+            result.Append(iconType);
+
+            var clanIconColor = GetClanIconColor(card.Clan);
+            result.Append(clanIconColor);
 
             return result.ToString();
+        }
+
+        private string GetClanIconColor(Clan clan)
+        {
+            return "fg-dark-" + clan.ToString().ToLower(CultureInfo.CurrentCulture);
+        }
+
+        private string GetIconType(CardType cardType)
+        {
+            switch (cardType)
+            {
+                case CardType.Event:
+                    return "fa-bolt ";
+                case CardType.Province:
+                    return "fa-map-marker ";
+                case CardType.Attachment:
+                    return "fa-paperclip ";
+                case CardType.Character:
+                    return "fa-user ";
+                case CardType.Holding:
+                    return "fa-home ";
+                case CardType.Stronghold:
+                    return "fa-university ";
+                case CardType.Role:
+                    return "fa-asterisk ";
+                default:
+                    return string.Empty;
+            }
         }
     }
 }
