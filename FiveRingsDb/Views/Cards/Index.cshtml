@@ -8,13 +8,13 @@
 <table class="table table-striped table-sm">
     <thead>
         <tr>
-            <th class="col">Name</th>
-            <th class="col">Clan</th>
-            <th class="col">Type</th>
-            <th class="col">Traits</th>
-            <th class="col">Deck</th>
-            <th class="col">Cost</th>
-            <th class="col">Value</th>
+            <th>Name</th>
+            <th>Clan</th>
+            <th>Type</th>
+            <th>Traits</th>
+            <th>Deck</th>
+            <th>Cost</th>
+            <th>Value</th>
         </tr>
     </thead>
     <tbody>
@@ -24,10 +24,10 @@
                 <td>@card.Name</td>
                 <td>@card.Clan</td>
                 <td>@card.CardType</td>
-                <td>@string.Join(", ", card.Traits)</td>
+                <td><span>@string.Join(", ", card.Traits)</span></td>
                 <td>@card.Side</td>
-                <td>@Model.GetCost(card)</td>
-                <td>@Model.GetValues(card)</td>
+                <td><span>@Model.GetCost(card)</span></td>
+                <td><span>@Model.GetValues(card)</span></td>
             </tr>
         }
     </tbody>
