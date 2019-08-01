@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using FiveRingsDb.Models;
 
 namespace FiveRingsDb.Views.Cards
@@ -17,10 +18,6 @@ namespace FiveRingsDb.Views.Cards
                     return ((CharacterCard)card).Cost.ToString();
                 case CardType.Event:
                     return ((EventCard)card).Cost.ToString();
-                case CardType.Province:
-                case CardType.Role:
-                case CardType.Stronghold:
-                case CardType.Holding:
                 default:
                     return string.Empty;
             }
@@ -45,11 +42,41 @@ namespace FiveRingsDb.Views.Cards
                 case CardType.Holding:
                     var holding = (HoldingCard)card;
                     return holding.StrengthBonus;
-                case CardType.Role:
-                case CardType.Event:
                 default:
                     return string.Empty;
             }
+        }
+
+        public string GetIconClasses(Card card)
+        {
+            var result = new StringBuilder("hidden-sm-down fa fa-fw ");
+
+            switch (card.CardType)
+            {
+                case CardType.Event:
+                    result.Append("fa-bolt ");
+                    break;
+                case CardType.Province:
+                    result.Append("fa-map-marker ");
+                    break;
+                case CardType.Attachment:
+                    result.Append("fa-paperclip ");
+                    break;
+                case CardType.Character:
+                    result.Append("fa-user ");
+                    break;
+                case CardType.Holding:
+                    result.Append("fa-home ");
+                    break;
+                case CardType.Stronghold:
+                    result.Append("fa-university ");
+                    break;
+                case CardType.Role:
+                    result.Append("fa-asterisk ");
+                    break;
+            }
+
+            return result.ToString();
         }
     }
 }
