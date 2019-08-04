@@ -21,7 +21,7 @@
         @foreach (var card in Model.Cards)
         {
             <tr>
-                <td><span class="@Model.GetIconClasses(card)"></span> @Html.ActionLink(card.Name, "Card", "Cards", new { id = card.Id })</td>
+                <td><span class="@Model.GetIconClasses(card)"></span> <a asp-controller="Cards" asp-action="Card" asp-route-id="@card.Id">@card.Name</a></td>
                 <td>@card.Clan</td>
                 <td>@card.CardType</td>
                 <td><span>@string.Join(", ", card.Traits)</span></td>
