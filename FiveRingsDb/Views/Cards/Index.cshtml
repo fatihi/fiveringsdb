@@ -11,7 +11,7 @@
 @section Scripts {
     <script>
         $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
+            $('[data-toggle="popover"]').popover();
         });
     </script>
 }
@@ -39,9 +39,12 @@
                     <a asp-controller="Cards"
                        asp-action="Card"
                        asp-route-id="@card.Id"
-                       data-toggle="tooltip"
+                       data-html="true"
+                       data-toggle="popover"
                        data-placement="right"
-                       title="asdf">
+                       data-trigger="hover"
+                       data-container="body"
+                       data-content="<b>Example </b>content">
                         @card.Name
                     </a>
                 </td>
