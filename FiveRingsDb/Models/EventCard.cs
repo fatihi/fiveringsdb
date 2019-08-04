@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace FiveRingsDb.Models
 {
-    public class EventCard : Card
+    public class EventCard : Card, ICostCard
     {
         [JsonProperty("cost")]
         public int? Cost { get; set; }
