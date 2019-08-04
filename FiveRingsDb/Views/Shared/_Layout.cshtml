@@ -14,64 +14,63 @@
     <link rel="stylesheet" href="~/css/site.min.css" />
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom mb-4">
-        <div class="container">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                <img src="/favicon-32x32.png" style="height:16px; vertical-align: baseline" alt="FiveRingsDb Icon">
-                FiveRingsDb
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-md-inline-flex flex-md-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Cards" asp-action="Index">Cards</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Decks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Builder</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Rules</a>
-                    </li>
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom mb-4">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="/favicon-32x32.png" style="height:16px; vertical-align: baseline" alt="FiveRingsDb Icon">
+                    FiveRingsDb
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-md-inline-flex flex-md-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Cards" asp-action="Index">Cards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Decks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Builder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Rules</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
-</div>
-
-<footer class="bg-light d-print-none">
-    <div class="container text-center pt-3">
-        <p>
-            Work in progress by the <a href="https://discord.gg/fTuEAuu">FiveRingsDB Discord channel</a>.
-            API Documentation at <a href="https://fiveringsdb.com/api/">https://fiveringsdb.com/api/</a>.
-        </p>
-        <p class="small">
-            The source material, text and images, presented on this site, is copyrighted by Fantasy Flight Games.<br>
-            Legend of the Five Rings is a trademark of Fantasy Flight Games.
-        </p>
-        <p class="small">
-            This website is not produced, endorsed, supported, or affiliated with Fantasy Flight Games.
-        </p>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
     </div>
-</footer>
 
-@section Scripts {
+    <footer class="bg-light d-print-none">
+        <div class="container text-center pt-3">
+            <p>
+                Work in progress by the <a href="https://discord.gg/fTuEAuu">FiveRingsDB Discord channel</a>.
+                API Documentation at <a href="https://fiveringsdb.com/api/">https://fiveringsdb.com/api/</a>.
+            </p>
+            <p class="small">
+                The source material, text and images, presented on this site, is copyrighted by Fantasy Flight Games.<br>
+                Legend of the Five Rings is a trademark of Fantasy Flight Games.
+            </p>
+            <p class="small">
+                This website is not produced, endorsed, supported, or affiliated with Fantasy Flight Games.
+            </p>
+        </div>
+    </footer>
+
+    @RenderSection("Popper", required: false)
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     @RenderSection("Scripts", required: false)
-}
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
 </body>
 </html>

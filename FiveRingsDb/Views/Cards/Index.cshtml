@@ -4,8 +4,16 @@
 
 @model FiveRingsDb.Views.Cards.CardsListViewModel
 
+@section Popper {
+    <script type="text/javascript" src="lib/popper.js/umd/popper.min.js"></script>
+}
+
 @section Scripts {
-    <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
 }
 
 <h2>Cards</h2>
@@ -26,7 +34,17 @@
         @foreach (var card in Model.Cards)
         {
             <tr>
-                <td><span class="@Model.GetIconClasses(card)"></span> <a asp-controller="Cards" asp-action="Card" asp-route-id="@card.Id">@card.Name</a></td>
+                <td>
+                    <span class="@Model.GetIconClasses(card)"> </span>
+                    <a asp-controller="Cards"
+                       asp-action="Card"
+                       asp-route-id="@card.Id"
+                       data-toggle="tooltip"
+                       data-placement="right"
+                       title="asdf">
+                        @card.Name
+                    </a>
+                </td>
                 <td>@card.Clan</td>
                 <td>@card.CardType</td>
                 <td><span>@string.Join(", ", card.Traits)</span></td>
