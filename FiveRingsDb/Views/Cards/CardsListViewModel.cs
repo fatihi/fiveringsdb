@@ -12,17 +12,12 @@ namespace FiveRingsDb.Views.Cards
 
         public string GetCost(Card card)
         {
-            switch (card.CardType)
+            if (card is ICostCard costCard)
             {
-                case CardType.Attachment:
-                    return ((AttachmentCard)card).Cost.ToString();
-                case CardType.Character:
-                    return ((CharacterCard)card).Cost.ToString();
-                case CardType.Event:
-                    return ((EventCard)card).Cost.ToString();
-                default:
-                    return string.Empty;
+                return costCard.Cost.ToString();
             }
+
+            return string.Empty;
         }
 
         public string GetValues(Card card)
