@@ -44,7 +44,7 @@
                        data-placement="right"
                        data-trigger="hover"
                        data-container="body"
-                       data-content="<b>Example </b>content">
+                       data-content="@await Html.PartialAsync("_CardPopover", card)">
                         @card.Name
                     </a>
                 </td>
