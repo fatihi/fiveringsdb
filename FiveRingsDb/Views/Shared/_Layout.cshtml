@@ -17,7 +17,7 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom mb-4">
         <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
                 <img src="/favicon-32x32.png" style="height:16px; vertical-align: baseline" alt="FiveRingsDb Icon">
                 FiveRingsDb
             </a>
@@ -67,6 +67,9 @@
     </div>
 </footer>
 
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
 

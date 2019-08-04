@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using FiveRingsDb.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FiveRingsDb.Views.Cards
 {
-    public class CardsListViewModel
+    public class CardsListViewModel : PageModel
     {
         public IEnumerable<Card> Cards { get; set; }
 
