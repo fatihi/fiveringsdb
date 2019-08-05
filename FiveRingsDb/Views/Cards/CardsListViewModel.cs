@@ -44,7 +44,7 @@ namespace FiveRingsDb.Views.Cards
             var result = new StringBuilder("hidden-sm-down fa fa-fw ");
 
             var iconType = GetIconType(card.CardType);
-            result.Append(iconType);
+            result.Append(iconType).Append(" ");
 
             var clanIconColor = GetClanIconColor(card.Clan);
             result.Append(clanIconColor);
@@ -62,19 +62,19 @@ namespace FiveRingsDb.Views.Cards
             switch (cardType)
             {
                 case CardType.Event:
-                    return "fa-bolt ";
+                    return "fa-bolt";
                 case CardType.Province:
-                    return "fa-map-marker ";
+                    return "fa-map-marker";
                 case CardType.Attachment:
-                    return "fa-paperclip ";
+                    return "fa-paperclip";
                 case CardType.Character:
-                    return "fa-user ";
+                    return "fa-user";
                 case CardType.Holding:
-                    return "fa-home ";
+                    return "fa-home";
                 case CardType.Stronghold:
-                    return "fa-university ";
+                    return "fa-university";
                 case CardType.Role:
-                    return "fa-asterisk ";
+                    return "fa-asterisk";
                 default:
                     return string.Empty;
             }
