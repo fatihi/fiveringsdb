@@ -25,13 +25,15 @@ namespace FiveRingsDb.Views.Cards
             switch (card)
             {
                 case AttachmentCard attachment:
-                    return attachment.MilitaryBonus + " / " + attachment.PoliticalBonus;
+                    return GetValueString(attachment.MilitaryBonus, attachment.PoliticalBonus);
                 case CharacterCard character:
-                    return character.Military + " / " + character.Political + " / " + character.Glory;
+                    var military = character.Military ?? "-";
+                    var political = character.Political ?? "-";
+                    return GetValueString(military, political, character.Glory);
                 case ProvinceCard province:
                     return province.Strength;
                 case StrongholdCard stronghold:
-                    return stronghold.Honor + " / " + stronghold.Fate + " / " + stronghold.InfluencePool + " / " + stronghold.StrengthBonus;
+                    return GetValueString(stronghold.Honor, stronghold.Fate, stronghold.InfluencePool, stronghold.StrengthBonus);
                 case HoldingCard holding:
                     return holding.StrengthBonus;
                 default:
@@ -39,12 +41,17 @@ namespace FiveRingsDb.Views.Cards
             }
         }
 
+        private string GetValueString(params object[] values)
+        {
+            return string.Join(" / ", values);
+        }
+
         public string GetIconClasses(Card card)
         {
             var result = new StringBuilder();
 
-            const string hideBlocksForSmallScreensClass = "d-none d-sm-block";
-            result.Append(hideBlocksForSmallScreensClass).Append(" ");
+            const string hideForSmallScreensClass = "d-none d-sm-inline";
+            result.Append(hideForSmallScreensClass).Append(" ");
 
             const string fontAwesomeClass = "fa";
             const string fontAwesomeAlignmentClass = "fa-fw";

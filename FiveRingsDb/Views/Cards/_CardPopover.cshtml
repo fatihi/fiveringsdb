@@ -29,15 +29,53 @@
         </div>
         <p>
             @if(Model is ICostCard costCard)
-            {
+             {
                 @if (costCard.Cost == null)
+                 {
+                     <span><span class="strike-through">Cost</span>.</span>
+                 }
+                 else
+                 {
+                     <span>Cost: @costCard.Cost.</span>
+                 }
+             }
+
+            @switch (Model)
+            {
+                case CharacterCard character:
                 {
-                    <span><span class="strike-through">Cost</span>.</span>
+                    if (character.Military == null)
+                    {
+                        <span><span class="strike-through">Military</span>.</span>
+                    }
+                    else
+                    {
+                        <span>Military: @(character.Military).</span>
+                    }
+
+                    if (character.Political == null)
+                    {
+                        <span><span class="strike-through">Political</span>.</span>
+                    }
+                    else
+                    {
+                        <span>Political: @(character.Political).</span>
+                    }
+                    break;
                 }
-                else
-                {
-                    <span>Cost: @costCard.Cost.</span>
-                }
+
+                case AttachmentCard attachment:
+                    <span>Military: @(attachment.MilitaryBonus ?? "-")</span>
+                    <span>Political: @(attachment.PoliticalBonus ?? "-")</span>
+                    break;
+                case ProvinceCard province:
+                    break;
+                case HoldingCard holding:
+                    break;
+                case StrongholdCard stronghold:
+                    break;
+                case EventCard _:
+                    break;
             }
         </p>
     </div>
