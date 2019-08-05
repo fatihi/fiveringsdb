@@ -32,4 +32,16 @@
     <_ContentIncludedByDefault Remove="ClientScripts\package.json" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\fonts\fiveringsdb.svg" />
+    <None Include="wwwroot\svg\clan\crab.svg" />
+    <None Include="wwwroot\svg\clan\crane.svg" />
+    <None Include="wwwroot\svg\clan\dragon.svg" />
+    <None Include="wwwroot\svg\clan\lion.svg" />
+    <None Include="wwwroot\svg\clan\neutral.svg" />
+    <None Include="wwwroot\svg\clan\phoenix.svg" />
+    <None Include="wwwroot\svg\clan\scorpion.svg" />
+    <None Include="wwwroot\svg\clan\unicorn.svg" />
+  </ItemGroup>
+
 </Project>

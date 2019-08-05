@@ -1,0 +1,87 @@
+﻿html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 144px;
+}
+
+.card-text em {
+    font-weight: 700;
+}
+
+.popover {
+    max-width: 360px;
+    padding: 0;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn-link {
+    cursor: pointer;
+}
+
+.popover-body {
+    padding: 0;
+}
+
+.popover-card {
+    border: none;
+}
+
+.bg-clan-icon.clan-crab {
+    background-image: url('/svg/clan/crab.svg');
+}
+
+.bg-clan-icon.clan-crane {
+    background-image: url('/svg/clan/crane.svg');
+}
+
+.bg-clan-icon.clan-dragon {
+    background-image: url('/svg/clan/dragon.svg');
+}
+
+.bg-clan-icon.clan-lion {
+    background-image: url('/svg/clan/lion.svg');
+}
+
+.bg-clan-icon.clan-neutral {
+    background-image: url('/svg/clan/neutral.svg');
+}
+
+.bg-clan-icon.clan-phoenix {
+    background-image: url('/svg/clan/phoenix.svg');
+}
+
+.bg-clan-icon.clan-scorpion {
+    background-image: url('/svg/clan/scorpion.svg');
+}
+
+.bg-clan-icon.clan-unicorn {
+    background-image: url('/svg/clan/unicorn.svg');
+}
+
+.text-smallcaps {
+    font-variant: small-caps;
+}
+
+.bt-30 {
+    border-top: 1px solid rgba(0, 0, 0, .3);
+}
+
+.bt-20 {
+    border-top: 1px solid rgba(0, 0, 0, .2);
+}
+
+.bt-10 {
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.bb-20 {
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.bb-10 {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}

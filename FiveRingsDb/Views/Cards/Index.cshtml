@@ -16,6 +16,10 @@
     </script>
 }
 
+@section CustomCss {
+    <link rel="stylesheet" href="~/css/card-page.css" />    
+}
+
 <h2>Cards</h2>
 
 <table class="table table-striped table-sm">
@@ -44,7 +48,7 @@
                        data-placement="right"
                        data-trigger="hover"
                        data-container="body"
-                       data-content="@await Html.PartialAsync("_CardPopover", card)">
+                       data-content='@await Html.PartialAsync("_CardPopover", card)'>
                         @card.Name
                     </a>
                 </td>

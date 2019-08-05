@@ -1,23 +1,44 @@
 ﻿@model Card
 
-<div class='card border-dark popover-card'>
-    <div class='card-body clan-@Model.Clan'>
-        <div class='d-flex row no-gutters'>
-            <div class='col'>
-                <h4 class='card-title'>
+@functions {
+    string SvgUrl()
+    {
+        var clan = Model.Clan.ToString().ToLower();
+        return "/svg/clan/" + clan + ".svg";
+    }
+}
+
+<div class="card border-dark popover-card">
+    <div class="card-body clan-@Model.Clan">
+        <div class="d-flex row no-gutters">
+            <div class="col">
+                <h4 class="card-title">
                     @if(Model.IsUnique){<span class="icon icon-unique small"></span>}
                     <slot>
                         @Model.Name
                     </slot>
                 </h4>
-                <h6 class='card-subtitle mb-2 card-attributes'>
+                <h6 class="card-subtitle mb-2 card-attributes">
                     @Model.Clan @Model.CardType. 
-                    <span class='card-traits'>@string.Join(". ", @Model.Traits)</span>
+                    <span class="card-traits">@string.Join(". ", @Model.Traits)</span>
                 </h6>
             </div>
-            <div class='col-auto'>
-                <img src='/static/svg/clan/@{ Model.Clan.ToString().ToLower(); }.svg' style='max-height: 7ex;' alt='@Model.Clan'/>
+            <div class="col-auto">
+                <img src="@SvgUrl()" style="max-height: 7ex;" alt="@Model.Clan"/>
             </div>
         </div>
+        <p>
+            @if(Model is ICostCard costCard)
+            {
+                @if (costCard.Cost == null)
+                {
+                    <span><span class="strike-through">Cost</span>.</span>
+                }
+                else
+                {
+                    <span>Cost: @costCard.Cost.</span>
+                }
+            }
+        </p>
     </div>
 </div>

@@ -14,7 +14,7 @@ namespace FiveRingsDb.Views.Cards
         {
             if (card is ICostCard costCard)
             {
-                return costCard.Cost.ToString();
+                return costCard.Cost == null ? "-" : costCard.Cost.ToString();
             }
 
             return string.Empty;

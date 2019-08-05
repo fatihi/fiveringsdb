@@ -1,0 +1,69 @@
+﻿span.strike-through {
+    text-decoration: line-through;
+}
+
+div.card-text {
+    border-width: 0;
+    border-left-width: 2px;
+    border-style: solid;
+    padding-left: 10px;
+}
+
+.clan-crab .card-text {
+    border-color: rgb(0, 28, 148);
+}
+
+.clan-crane .card-text {
+    border-color: rgb(0, 137, 222);
+}
+
+.clan-dragon .card-text {
+    border-color: rgb(0, 164, 114);
+}
+
+.clan-lion .card-text {
+    border-color: rgb(203, 157, 0);
+}
+
+.clan-phoenix .card-text {
+    border-color: rgb(193, 100, 0);
+}
+
+.clan-scorpion .card-text {
+    border-color: rgb(166, 22, 0);
+}
+
+.clan-unicorn .card-text {
+    border-color: rgb(120, 0, 152);
+}
+
+.clan-neutral .card-text {
+    border-color: rgb(160, 160, 160);
+}
+
+.card-flavor-text {
+    font-style: italic;
+    font-size: 90%;
+    color: #333;
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+select.pack-chooser {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+div.pack-chooser {
+    border: 1px solid transparent;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 0.25rem;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.card-attributes {
+    font-weight: 700;
+    font-style: italic;
+}
