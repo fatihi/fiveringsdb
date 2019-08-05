@@ -22,22 +22,17 @@ namespace FiveRingsDb.Views.Cards
 
         public string GetValues(Card card)
         {
-            switch (card.CardType)
+            switch (card)
             {
-                case CardType.Attachment:
-                    var attachment = (AttachmentCard)card;
+                case AttachmentCard attachment:
                     return attachment.MilitaryBonus + " / " + attachment.PoliticalBonus;
-                case CardType.Character:
-                    var character = (CharacterCard)card;
+                case CharacterCard character:
                     return character.Military + " / " + character.Political + " / " + character.Glory;
-                case CardType.Province:
-                    var province = (ProvinceCard)card;
+                case ProvinceCard province:
                     return province.Strength;
-                case CardType.Stronghold:
-                    var stronghold = (StrongholdCard)card;
+                case StrongholdCard stronghold:
                     return stronghold.Honor + " / " + stronghold.Fate + " / " + stronghold.InfluencePool + " / " + stronghold.StrengthBonus;
-                case CardType.Holding:
-                    var holding = (HoldingCard)card;
+                case HoldingCard holding:
                     return holding.StrengthBonus;
                 default:
                     return string.Empty;
