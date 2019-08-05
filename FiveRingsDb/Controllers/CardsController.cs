@@ -19,10 +19,9 @@ namespace FiveRingsDb.Controllers
         public async Task<IActionResult> Index()
         {
             var cards = await cardsRepository.GetCards();
-            var orderedCards = cards.OrderBy(x => x.Name);
             var viewModel = new CardsListViewModel
             {
-                Cards = orderedCards
+                Cards = cards
             };
 
             return View(viewModel);
