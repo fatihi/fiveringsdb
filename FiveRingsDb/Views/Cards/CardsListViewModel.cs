@@ -41,7 +41,15 @@ namespace FiveRingsDb.Views.Cards
 
         public string GetIconClasses(Card card)
         {
-            var result = new StringBuilder("hidden-sm-down fa fa-fw ");
+            var result = new StringBuilder();
+
+            const string hideBlocksForSmallScreensClass = "d-none d-sm-block";
+            result.Append(hideBlocksForSmallScreensClass).Append(" ");
+
+            const string fontAwesomeClass = "fa";
+            const string fontAwesomeAlignmentClass = "fa-fw";
+            result.Append(fontAwesomeClass).Append(" ");
+            result.Append(fontAwesomeAlignmentClass).Append(" ");
 
             var iconType = GetIconType(card.CardType);
             result.Append(iconType).Append(" ");
