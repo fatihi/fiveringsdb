@@ -4,10 +4,6 @@
     min-height: 100%;
 }
 
-body {
-    margin-bottom: 144px;
-}
-
 .card-text em {
     font-weight: 700;
 }
