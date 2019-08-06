@@ -41,24 +41,18 @@ namespace FiveRingsDb.Views.Cards
             }
         }
 
-        private string GetValueString(params object[] values)
-        {
-            return string.Join(" / ", values);
-        }
-
         public string GetIconClasses(Card card)
         {
             var result = new StringBuilder();
 
             const string hideForSmallScreensClass = "d-none d-sm-inline";
             result.Append(hideForSmallScreensClass).Append(" ");
-
             const string fontAwesomeClass = "fa";
-            const string fontAwesomeAlignmentClass = "fa-fw";
             result.Append(fontAwesomeClass).Append(" ");
+            const string fontAwesomeAlignmentClass = "fa-fw";
             result.Append(fontAwesomeAlignmentClass).Append(" ");
 
-            var iconType = GetIconType(card.CardType);
+            var iconType = GetIconType(card);
             result.Append(iconType).Append(" ");
 
             var clanIconColor = GetClanIconColor(card.Clan);
@@ -67,28 +61,33 @@ namespace FiveRingsDb.Views.Cards
             return result.ToString();
         }
 
+        private string GetValueString(params object[] values)
+        {
+            return string.Join(" / ", values);
+        }
+
         private string GetClanIconColor(Clan clan)
         {
             return "fg-dark-" + clan.ToString().ToLower(CultureInfo.CurrentCulture);
         }
 
-        private string GetIconType(CardType cardType)
+        private string GetIconType(Card card)
         {
-            switch (cardType)
+            switch (card)
             {
-                case CardType.Event:
+                case EventCard _:
                     return "fa-bolt";
-                case CardType.Province:
+                case ProvinceCard _:
                     return "fa-map-marker";
-                case CardType.Attachment:
+                case AttachmentCard _:
                     return "fa-paperclip";
-                case CardType.Character:
+                case CharacterCard _:
                     return "fa-user";
-                case CardType.Holding:
+                case HoldingCard _:
                     return "fa-home";
-                case CardType.Stronghold:
+                case StrongholdCard _:
                     return "fa-university";
-                case CardType.Role:
+                case RoleCard _:
                     return "fa-asterisk";
                 default:
                     return string.Empty;
