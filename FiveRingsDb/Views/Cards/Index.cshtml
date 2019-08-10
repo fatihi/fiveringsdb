@@ -5,7 +5,7 @@
 @model FiveRingsDb.Views.Cards.CardsListViewModel
 
 @section Popper {
-    <script type="text/javascript" src="lib/popper.js/umd/popper.min.js"></script>
+    <script type="text/javascript" src="/lib/popper.js/umd/popper.min.js"></script>
 }
 
 @section Scripts {
@@ -17,48 +17,54 @@
 }
 
 @section CustomCss {
-    <link rel="stylesheet" href="~/css/card-page.css" />    
+    <link rel="stylesheet" href="~/css/card-page.css"/>
 }
 
 <h2>Cards</h2>
 
 <table class="table table-striped table-sm">
     <thead>
-        <tr>
-            <th>Name</th>
-            <th>Clan</th>
-            <th>Type</th>
-            <th>Traits</th>
-            <th>Deck</th>
-            <th>Cost</th>
-            <th>Value</th>
-        </tr>
+    <tr>
+        <th>Name</th>
+        <th>Clan</th>
+        <th>Type</th>
+        <th>Traits</th>
+        <th>Deck</th>
+        <th>Cost</th>
+        <th>Value</th>
+    </tr>
     </thead>
     <tbody>
-        @foreach (var card in Model.Cards)
-         {
-             <tr>
-                 <td>
-                     <span class="@Model.GetIconClasses(card)"> </span>
-                     <a asp-controller="Cards"
-                        asp-action="Card"
-                        asp-route-id="@card.Id"
-                        data-html="true"
-                        data-toggle="popover"
-                        data-placement="right"
-                        data-trigger="hover"
-                        data-container="body"
-                        data-content='@await Html.PartialAsync("_CardPopover", card)'>
-                         @card.Name
-                     </a>
-                 </td>
-                 <td>@card.Clan</td>
-                 <td>@card.CardType</td>
-                 <td><span>@string.Join(", ", card.Traits)</span></td>
-                 <td>@card.Side</td>
-                 <td><span>@Model.GetCost(card)</span></td>
-                 <td><span>@Model.GetValues(card)</span></td>
-             </tr>
-         }
+    @foreach (var card in Model.Cards)
+    {
+        <tr>
+            <td>
+                <span class="@Model.GetIconClasses(card)"> </span>
+                <a asp-controller="Cards"
+                   asp-action="Card"
+                   asp-route-id="@card.Id"
+                   data-html="true"
+                   data-toggle="popover"
+                   data-placement="right"
+                   data-trigger="hover"
+                   data-container="body"
+                   data-content='@await Html.PartialAsync("_CardPopover", card)'>
+                    @card.Name
+                </a>
+            </td>
+            <td>@card.Clan</td>
+            <td>@card.CardType</td>
+            <td>
+                <span>@string.Join(", ", card.Traits)</span>
+            </td>
+            <td>@card.Side</td>
+            <td>
+                <span>@Model.GetCost(card)</span>
+            </td>
+            <td>
+                <span>@Model.GetValues(card)</span>
+            </td>
+        </tr>
+    }
     </tbody>
 </table>

@@ -1,4 +1,6 @@
-﻿using FiveRingsDb.Models;
+﻿using System.Linq;
+using System.Text.RegularExpressions;
+using FiveRingsDb.Models;
 using FiveRingsDb.Views.Cards;
 using FluentAssertions;
 using NUnit.Framework;

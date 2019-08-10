@@ -1,35 +1,31 @@
-﻿@model Card
-
-@functions {
-    string SvgUrl()
-    {
-        var clan = Model.Clan.ToString().ToLower();
-        return "/svg/clan/" + clan + ".svg";
-    }
-}
+﻿@using FiveRingsDb.Utils
+@model Card
 
 <div class="card border-dark popover-card">
     <div class="card-body clan-@Model.Clan">
         <div class="d-flex row no-gutters">
             <div class="col">
                 <h4 class="card-title">
-                    @if(Model.IsUnique){<span class="icon icon-unique small"></span>}
+                    @if (Model.IsUnique)
+                    {
+                        <span class="icon icon-unique small"></span>
+                    }
                     <slot>
                         @Model.Name
                     </slot>
                 </h4>
                 <h6 class="card-subtitle mb-2 card-attributes">
-                    @Model.Clan @Model.CardType. 
+                    @Model.Clan @Model.CardType.
                     <span class="card-traits">@string.Join(". ", @Model.Traits)</span>
                 </h6>
             </div>
             <div class="col-auto">
-                <img src="@SvgUrl()" style="max-height: 7ex;" alt="@Model.Clan"/>
+                <img src="/svg/clan/@(Model.Clan.ToString().ToLower()).svg" style="max-height: 7ex;" alt="@Model.Clan"/>
             </div>
         </div>
         <p>
-            @if(Model is ICostCard costCard)
-             {
+            @if (Model is ICostCard costCard)
+            {
                 @if (costCard.Cost == null)
                  {
                      <span><span class="strike-through">Cost</span>.</span>
@@ -38,7 +34,7 @@
                  {
                      <span>Cost: @costCard.Cost.</span>
                  }
-             }
+            }
 
             @switch (Model)
             {
@@ -63,19 +59,49 @@
                     }
                     break;
                 }
-
                 case AttachmentCard attachment:
-                    <span>Military: @(attachment.MilitaryBonus ?? "-")</span>
-                    <span>Political: @(attachment.PoliticalBonus ?? "-")</span>
+                    <span>Military: @attachment.MilitaryBonus.</span>
+                    <span>Political: @attachment.PoliticalBonus.</span>
                     break;
                 case ProvinceCard province:
+                    <span class="icon-element-@province.Element.ToString().ToLower()"></span>
+                    <span class="text-smallcaps">@province.Element</span>
+                    <span>Strength: @province.Strength</span>
                     break;
                 case HoldingCard holding:
+                    <span>Strength: @holding.StrengthBonus</span>
                     break;
                 case StrongholdCard stronghold:
+                    <span>Strength: @stronghold.StrengthBonus</span>
+                    <span>Honor: @stronghold.Honor</span>
+                    <span>Fate: @stronghold.Fate</span>
+                    <span>Influence: @stronghold.InfluencePool</span>
                     break;
                 case EventCard _:
                     break;
+            }
+        </p>
+        <div class="card-text mb-2">
+            <p class="card-text">
+                <span>@Html.Raw(Model.Text?.ToIconizedHtmlCardText())</span>
+            </p>
+        </div>
+        <p class="text-right">
+            @Model.Side Deck
+            @if (Model.Side == Side.Conflict && Model is IInfluenceCostCard influenceCostCard)
+            {
+                @if (influenceCostCard.InfluenceCost != null)
+                 {
+                     <span>&ndash; Influence Cost: @influenceCostCard.InfluenceCost</span>
+                 }
+                 else if (Model.Clan != Clan.Neutral)
+                 {
+                     <span>&ndash; No Influence Cost</span>
+                 }
+                 else
+                 {
+                     <span>&ndash; Influence Cost: 0</span>
+                 }
             }
         </p>
     </div>
