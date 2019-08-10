@@ -5,7 +5,7 @@ namespace FiveRingsDb.Utils
     public static class IconProvider
     {
         private const string EVENT = "fa-bolt";
-        private const string PROVINCE = "fa-map-marker";
+        private const string PROVINCE = "fa-map-marker-alt";
         private const string ATTACHMENT = "fa-paperclip";
         private const string CHARACTER = "fa-user";
         private const string HOLDING = "fa-home";
