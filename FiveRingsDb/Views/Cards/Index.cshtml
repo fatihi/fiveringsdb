@@ -39,7 +39,7 @@
     {
         <tr>
             <td>
-                <span class="@Model.GetIconClasses(card)"> </span>
+                <span title="@card.CardType" class="@Model.GetIconClasses(card)"></span>
                 <a asp-controller="Cards"
                    asp-action="Card"
                    asp-route-id="@card.Id"

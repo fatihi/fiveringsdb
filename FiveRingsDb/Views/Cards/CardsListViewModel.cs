@@ -46,7 +46,7 @@ namespace FiveRingsDb.Views.Cards
         {
             var result = new StringBuilder();
 
-            const string hideForSmallScreensClass = "d-none d-sm-inline";
+            const string hideForSmallScreensClass = "d-none d-sm-inline-block";
             result.Append(hideForSmallScreensClass).Append(" ");
             const string fontAwesomeClass = "fa";
             result.Append(fontAwesomeClass).Append(" ");
