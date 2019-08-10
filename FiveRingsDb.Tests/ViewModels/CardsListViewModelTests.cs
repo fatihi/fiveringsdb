@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Text.RegularExpressions;
-using FiveRingsDb.Models;
+﻿using FiveRingsDb.Models;
 using FiveRingsDb.Views.Cards;
 using FluentAssertions;
 using NUnit.Framework;
@@ -112,7 +110,7 @@ namespace FiveRingsDb.Tests.ViewModels
         [Test]
         public void GetIconClasses_Should_ReturnCorrectClasses_When_ClanIsUnicorn_And_TypeIsEvent()
         {
-            const string expected = "d-none d-sm-inline fa fa-fw fa-bolt fg-dark-unicorn";
+            const string expected = "d-none d-sm-inline-block fa fa-fw fa-bolt fg-dark-unicorn";
             var card = new EventCard { Clan = Clan.Unicorn };
             var viewModel = new CardsListViewModel();
 
@@ -124,7 +122,7 @@ namespace FiveRingsDb.Tests.ViewModels
         [Test]
         public void GetIconClasses_Should_ReturnCorrectClasses_When_ClanIsPhoenix_And_TypeIsCharacter()
         {
-            const string expected = "d-none d-sm-inline fa fa-fw fa-user fg-dark-phoenix";
+            const string expected = "d-none d-sm-inline-block fa fa-fw fa-user fg-dark-phoenix";
             var card = new CharacterCard { Clan = Clan.Phoenix };
             var viewModel = new CardsListViewModel();
 
@@ -136,7 +134,7 @@ namespace FiveRingsDb.Tests.ViewModels
         [Test]
         public void GetIconClasses_Should_ReturnCorrectClasses_When_ClanIsScorpion_And_TypeIsStronghold()
         {
-            const string expected = "d-none d-sm-inline fa fa-fw fa-university fg-dark-scorpion";
+            const string expected = "d-none d-sm-inline-block fa fa-fw fa-university fg-dark-scorpion";
             var card = new StrongholdCard { Clan = Clan.Scorpion };
             var viewModel = new CardsListViewModel();
 
@@ -148,7 +146,7 @@ namespace FiveRingsDb.Tests.ViewModels
         [Test]
         public void GetIconClasses_Should_ReturnCorrectClasses_When_ClanIsLion_And_TypeIsProvince()
         {
-            const string expected = "d-none d-sm-inline fa fa-fw fa-map-marker fg-dark-lion";
+            const string expected = "d-none d-sm-inline-block fa fa-fw fa-map-marker fg-dark-lion";
             var card = new ProvinceCard { Clan = Clan.Lion };
             var viewModel = new CardsListViewModel();
 
@@ -160,7 +158,7 @@ namespace FiveRingsDb.Tests.ViewModels
         [Test]
         public void GetIconClasses_Should_ReturnCorrectClasses_When_ClanIsCrane_And_TypeIsAttachment()
         {
-            const string expected = "d-none d-sm-inline fa fa-fw fa-paperclip fg-dark-crane";
+            const string expected = "d-none d-sm-inline-block fa fa-fw fa-paperclip fg-dark-crane";
             var card = new AttachmentCard { Clan = Clan.Crane };
             var viewModel = new CardsListViewModel();
 
@@ -172,7 +170,7 @@ namespace FiveRingsDb.Tests.ViewModels
         [Test]
         public void GetIconClasses_Should_ReturnCorrectClasses_When_ClanIsCrab_And_TypeIsHolding()
         {
-            const string expected = "d-none d-sm-inline fa fa-fw fa-home fg-dark-crab";
+            const string expected = "d-none d-sm-inline-block fa fa-fw fa-home fg-dark-crab";
             var card = new HoldingCard { Clan = Clan.Crab };
             var viewModel = new CardsListViewModel();
 
@@ -184,7 +182,7 @@ namespace FiveRingsDb.Tests.ViewModels
         [Test]
         public void GetIconClasses_Should_ReturnCorrectClasses_When_ClanIsNeutral_And_TypeIsRole()
         {
-            const string expected = "d-none d-sm-inline fa fa-fw fa-asterisk fg-dark-neutral";
+            const string expected = "d-none d-sm-inline-block fa fa-fw fa-asterisk fg-dark-neutral";
             var card = new RoleCard { Clan = Clan.Neutral };
             var viewModel = new CardsListViewModel();
 
@@ -196,7 +194,7 @@ namespace FiveRingsDb.Tests.ViewModels
         [Test]
         public void GetIconClasses_Should_ReturnCorrectClasses_When_ClanIsDragon_And_TypeIsRole()
         {
-            const string expected = "d-none d-sm-inline fa fa-fw fa-asterisk fg-dark-dragon";
+            const string expected = "d-none d-sm-inline-block fa fa-fw fa-asterisk fg-dark-dragon";
             var card = new RoleCard { Clan = Clan.Dragon };
             var viewModel = new CardsListViewModel();
 
