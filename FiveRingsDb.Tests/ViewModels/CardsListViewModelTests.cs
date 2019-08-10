@@ -146,7 +146,7 @@ namespace FiveRingsDb.Tests.ViewModels
         [Test]
         public void GetIconClasses_Should_ReturnCorrectClasses_When_ClanIsLion_And_TypeIsProvince()
         {
-            const string expected = "d-none d-sm-inline-block fa fa-fw fa-map-marker fg-dark-lion";
+            const string expected = "d-none d-sm-inline-block fa fa-fw fa-map-marker-alt fg-dark-lion";
             var card = new ProvinceCard { Clan = Clan.Lion };
             var viewModel = new CardsListViewModel();
 
