@@ -15,7 +15,7 @@ namespace FiveRingsDb.Views.Cards
         {
             if (card is ICostCard costCard)
             {
-                return costCard.Cost == null ? "-" : costCard.Cost.ToString();
+                return costCard.Cost?.ToString(CultureInfo.CurrentCulture) ?? "-";
             }
 
             return string.Empty;
