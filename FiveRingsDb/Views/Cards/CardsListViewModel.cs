@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Text;
 using FiveRingsDb.Models;
+using FiveRingsDb.Utils;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FiveRingsDb.Views.Cards
@@ -52,7 +53,7 @@ namespace FiveRingsDb.Views.Cards
             const string fontAwesomeAlignmentClass = "fa-fw";
             result.Append(fontAwesomeAlignmentClass).Append(" ");
 
-            var iconType = GetIconType(card);
+            var iconType = IconProvider.GetIconString(card);
             result.Append(iconType).Append(" ");
 
             var clanIconColor = GetClanIconColor(card.Clan);
@@ -69,29 +70,6 @@ namespace FiveRingsDb.Views.Cards
         private string GetClanIconColor(Clan clan)
         {
             return "fg-dark-" + clan.ToString().ToLower(CultureInfo.CurrentCulture);
-        }
-
-        private string GetIconType(Card card)
-        {
-            switch (card)
-            {
-                case EventCard _:
-                    return "fa-bolt";
-                case ProvinceCard _:
-                    return "fa-map-marker";
-                case AttachmentCard _:
-                    return "fa-paperclip";
-                case CharacterCard _:
-                    return "fa-user";
-                case HoldingCard _:
-                    return "fa-home";
-                case StrongholdCard _:
-                    return "fa-university";
-                case RoleCard _:
-                    return "fa-asterisk";
-                default:
-                    return string.Empty;
-            }
         }
     }
 }
