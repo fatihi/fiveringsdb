@@ -36,6 +36,8 @@ namespace FiveRingsDb.Models
         Condition,
         [EnumMember(Value = "courtier")]
         Courtier,
+        [EnumMember(Value = "crab")]
+        Crab,
         [EnumMember(Value = "crane")]
         Crane,
         [EnumMember(Value = "creature")]
@@ -84,6 +86,8 @@ namespace FiveRingsDb.Models
         Item,
         [EnumMember(Value = "jade")]
         Jade,
+        [EnumMember(Value = "kaiu-wall")]
+        KaiuWall,
         [EnumMember(Value = "keeper")]
         Keeper,
         [EnumMember(Value = "kenshinzen")]
