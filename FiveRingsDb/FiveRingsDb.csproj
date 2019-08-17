@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
@@ -24,6 +25,23 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="ClientScripts\package-lock.json" />
+    <_ContentIncludedByDefault Remove="ClientScripts\package.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\fonts\fiveringsdb.svg" />
+    <None Include="wwwroot\svg\clan\crab.svg" />
+    <None Include="wwwroot\svg\clan\crane.svg" />
+    <None Include="wwwroot\svg\clan\dragon.svg" />
+    <None Include="wwwroot\svg\clan\lion.svg" />
+    <None Include="wwwroot\svg\clan\neutral.svg" />
+    <None Include="wwwroot\svg\clan\phoenix.svg" />
+    <None Include="wwwroot\svg\clan\scorpion.svg" />
+    <None Include="wwwroot\svg\clan\unicorn.svg" />
   </ItemGroup>
 
 </Project>

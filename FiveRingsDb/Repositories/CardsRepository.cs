@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using FiveRingsDb.Models;
 using FiveRingsDb.Utils;
@@ -19,7 +20,7 @@ namespace FiveRingsDb.Repositories
 
         public async Task<IEnumerable<Card>> GetCards()
         {
-            return await db.Cards.ToListAsync();
+            return await db.Cards.OrderBy(x => x.Name).ToListAsync();
         }
 
         public async Task<Card> GetCard(string id)
