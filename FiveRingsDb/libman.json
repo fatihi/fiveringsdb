@@ -3,13 +3,6 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "popper.js@1.15.0",
-      "destination": "wwwroot/lib/popper.js/",
-      "files": [
-        "umd/popper.min.js"
-      ]
-    },
-    {
       "library": "font-awesome@5.10.0-12",
       "destination": "wwwroot/lib/font-awesome/"
     }
