@@ -11,7 +11,6 @@ namespace FiveRingsDb.Models
             NpgsqlConnection.GlobalTypeMapper.MapEnum<Clan>();
             NpgsqlConnection.GlobalTypeMapper.MapEnum<CardType>();
             NpgsqlConnection.GlobalTypeMapper.MapEnum<KeywordType>();
-            NpgsqlConnection.GlobalTypeMapper.MapEnum<Trait>();
             NpgsqlConnection.GlobalTypeMapper.MapEnum<SetName>();
             NpgsqlConnection.GlobalTypeMapper.MapEnum<Element>();
         }
@@ -47,7 +46,6 @@ namespace FiveRingsDb.Models
             mb.ForNpgsqlHasEnum<Clan>();
             mb.ForNpgsqlHasEnum<CardType>();
             mb.ForNpgsqlHasEnum<KeywordType>();
-            mb.ForNpgsqlHasEnum<Trait>();
             mb.ForNpgsqlHasEnum<SetName>();
             mb.ForNpgsqlHasEnum<Element>();
 

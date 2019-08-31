@@ -18,7 +18,7 @@ namespace FiveRingsDb.Models
         public string NameCanonical => Name.ToCanonical();
 
         [JsonProperty("traits")]
-        public List<Trait> Traits { get; set; }
+        public List<string> Traits { get; set; }
 
         [JsonProperty("keywords")]
         public List<Keyword> Keywords { get; set; }

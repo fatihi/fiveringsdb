@@ -14,8 +14,7 @@ namespace FiveRingsDb.Migrations
                 .Annotation("Npgsql:Enum:element", "air,earth,fire,void,water,all")
                 .Annotation("Npgsql:Enum:keyword_type", "ancestral,composure,courtesy,covert,disguised,limited,no_attachments,pride,restricted,sincerity")
                 .Annotation("Npgsql:Enum:set_name", "core_set,tears_of_amaterasu,for_honor_and_glory,into_the_forbidden_city,the_chrysanthemum_throne,fate_has_no_secrets,meditations_on_the_ephemeral,disciples_of_the_void,breath_of_the_kami,tainted_lands,the_fires_within,the_ebb_and_flow,all_and_nothing,elements_unbound,underhand_of_the_emperor,children_of_the_empire")
-                .Annotation("Npgsql:Enum:side", "conflict,province,dynasty,role")
-                .Annotation("Npgsql:Enum:trait", "academy,actor,air,army,banner,battle_maiden,battlefield,berserker,bushi,castle,cavalry,champion,city,commander,condition,courtier,crane,creature,crown_prince,curse,daimyo,dojo,duelist,earth,elemental_master,emperor,engineer,festival,fire,follower,fort,gaijin,garden,geisha,goblin,heretic,imperial,informant,item,jade,keeper,kenshinzen,kiho,laboratory,landmark,library,lion,magistrate,maho,mantis_clan,marketplace,mask,meishodo,mine,monk,mount,mythic,omen,oni,outpost,palace,peasant,philosophy,phoenix,poison,quest,ritual,river,ronin,scholar,scorpion,scout,seal,seeker,shadow,shadowlands,shinobi,shrine,shugenja,skill,spell,spirit,storyteller,tactic,tattoo,tattooed,tea_house,technique,temple,trap,unicorn,void,water,weapon,wily_trader,yojimbo");
+                .Annotation("Npgsql:Enum:side", "conflict,province,dynasty,role");
 
             migrationBuilder.CreateTable(
                 name: "Cards",
@@ -23,7 +22,7 @@ namespace FiveRingsDb.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    Traits = table.Column<List<Trait>>(nullable: true),
+                    Traits = table.Column<List<string>>(nullable: true),
                     Side = table.Column<Side>(nullable: false),
                     DeckLimit = table.Column<int>(nullable: false),
                     Clan = table.Column<Clan>(nullable: false),
@@ -51,7 +50,7 @@ namespace FiveRingsDb.Migrations
                     InfluencePool = table.Column<int>(nullable: true),
                     Fate = table.Column<int>(nullable: true),
                     StrongholdStrengthBonus = table.Column<string>(nullable: true),
-                    Honor = table.Column<int>(nullable: true),
+                    Honor = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -64,9 +63,9 @@ namespace FiveRingsDb.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     Type = table.Column<KeywordType>(nullable: false),
-                    Exceptions = table.Column<List<Trait>>(nullable: true),
-                    Restrictions = table.Column<List<Trait>>(nullable: true),
-                    CardId = table.Column<string>(nullable: true),
+                    Exceptions = table.Column<List<string>>(nullable: true),
+                    Restrictions = table.Column<List<string>>(nullable: true),
+                    CardId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -89,7 +88,7 @@ namespace FiveRingsDb.Migrations
                     Pack = table.Column<SetName>(nullable: false),
                     Position = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
-                    CardId = table.Column<string>(nullable: true),
+                    CardId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
