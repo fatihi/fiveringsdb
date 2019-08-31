@@ -2,6 +2,7 @@
     ViewData["Title"] = "Cards";
 }
 
+@using FiveRingsDb.Utils
 @model FiveRingsDb.Views.Cards.CardsListViewModel
 
 @section Scripts {
@@ -51,7 +52,7 @@
             <td>@card.Clan</td>
             <td>@card.CardType</td>
             <td>
-                <span>@string.Join(", ", card.Traits)</span>
+                <span>@string.Join(", ", card.Traits.Select(x => x.UppercaseFirstLetter()))</span>
             </td>
             <td>@card.Side</td>
             <td>
