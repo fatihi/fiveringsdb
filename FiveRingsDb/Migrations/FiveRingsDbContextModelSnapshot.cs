@@ -20,7 +20,6 @@ namespace FiveRingsDb.Migrations
                 .HasAnnotation("Npgsql:Enum:clan", "crab,crane,dragon,lion,neutral,phoenix,scorpion,unicorn")
                 .HasAnnotation("Npgsql:Enum:element", "air,earth,fire,void,water,all")
                 .HasAnnotation("Npgsql:Enum:keyword_type", "ancestral,composure,courtesy,covert,disguised,limited,no_attachments,pride,restricted,sincerity")
-                .HasAnnotation("Npgsql:Enum:set_name", "core_set,tears_of_amaterasu,for_honor_and_glory,into_the_forbidden_city,the_chrysanthemum_throne,fate_has_no_secrets,meditations_on_the_ephemeral,disciples_of_the_void,breath_of_the_kami,tainted_lands,the_fires_within,the_ebb_and_flow,all_and_nothing,elements_unbound,underhand_of_the_emperor,children_of_the_empire")
                 .HasAnnotation("Npgsql:Enum:side", "conflict,province,dynasty,role")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
@@ -98,7 +97,7 @@ namespace FiveRingsDb.Migrations
 
                     b.Property<string>("ImageUrl");
 
-                    b.Property<SetName>("Pack");
+                    b.Property<string>("Pack");
 
                     b.Property<string>("Position");
 

@@ -13,7 +13,6 @@ namespace FiveRingsDb.Migrations
                 .Annotation("Npgsql:Enum:clan", "crab,crane,dragon,lion,neutral,phoenix,scorpion,unicorn")
                 .Annotation("Npgsql:Enum:element", "air,earth,fire,void,water,all")
                 .Annotation("Npgsql:Enum:keyword_type", "ancestral,composure,courtesy,covert,disguised,limited,no_attachments,pride,restricted,sincerity")
-                .Annotation("Npgsql:Enum:set_name", "core_set,tears_of_amaterasu,for_honor_and_glory,into_the_forbidden_city,the_chrysanthemum_throne,fate_has_no_secrets,meditations_on_the_ephemeral,disciples_of_the_void,breath_of_the_kami,tainted_lands,the_fires_within,the_ebb_and_flow,all_and_nothing,elements_unbound,underhand_of_the_emperor,children_of_the_empire")
                 .Annotation("Npgsql:Enum:side", "conflict,province,dynasty,role");
 
             migrationBuilder.CreateTable(
@@ -85,7 +84,7 @@ namespace FiveRingsDb.Migrations
                     Id = table.Column<string>(nullable: false),
                     Illustrator = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
-                    Pack = table.Column<SetName>(nullable: false),
+                    Pack = table.Column<string>(nullable: true),
                     Position = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
                     CardId = table.Column<string>(nullable: true)
