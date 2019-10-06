@@ -1,4 +1,5 @@
-﻿using FiveRingsDb.Models;
+﻿using System.Text.Json.Serialization;
+using FiveRingsDb.Models;
 using FiveRingsDb.Repositories;
 using FiveRingsDb.Utils;
 using Microsoft.AspNetCore.Builder;
@@ -23,23 +24,22 @@ namespace FiveRingsDb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddJsonOptions(options =>
                 {
-                    options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
-                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
                 });
 
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<FiveRingsDbContext>(options =>
-                    options.UseNpgsql(Configuration.GetConnectionString("FiveRingsDb")))
-                .BuildServiceProvider();
+                    options.UseNpgsql(Configuration.GetConnectionString("FiveRingsDb")));
 
             services.AddScoped<ICardsRepository, CardsRepository>();
             services.AddSingleton<IFileReader, FileReader>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the runtime. Use this method to  the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -53,12 +53,12 @@ namespace FiveRingsDb
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseRouting();
 
-            app.UseMvc(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
         }
     }
