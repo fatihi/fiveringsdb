@@ -18,7 +18,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark border-bottom mb-4">
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark border-bottom mb-4" role="navigation">
             <div class="container">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">
                     <img src="/favicon-32x32.png" style="height:16px; vertical-align: baseline" alt="FiveRingsDb Icon">
@@ -29,7 +29,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-md-inline-flex flex-md-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Cards" asp-action="Index">Cards</a>
                         </li>
@@ -48,7 +48,7 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container" style="margin-top: 60px">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -64,9 +64,9 @@
                 The source material, text and images, presented on this site, is copyrighted by Fantasy Flight Games.<br>
                 Legend of the Five Rings is a trademark of Fantasy Flight Games.
             </p>
-            <p class="small">
+            <div class="small">
                 This website is not produced, endorsed, supported, or affiliated with Fantasy Flight Games.
-            </p>
+            </div>
         </div>
     </footer>
 
