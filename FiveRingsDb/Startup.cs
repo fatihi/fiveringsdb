@@ -23,13 +23,6 @@ namespace FiveRingsDb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddMvc()
-            //    .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
-            //    .AddJsonOptions(options =>
-            //    {
-            //        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-            //        options.JsonSerializerOptions.IgnoreNullValues = true;
-            //    });
 
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<FiveRingsDbContext>(options =>
@@ -39,7 +32,6 @@ namespace FiveRingsDb
             services.AddSingleton<IFileReader, FileReader>();
         }
 
-        // This method gets called by the runtime. Use this method to  the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
