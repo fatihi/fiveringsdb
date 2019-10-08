@@ -20,16 +20,16 @@ namespace FiveRingsDb
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
-                .AddJsonOptions(options =>
-                {
-                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                    options.JsonSerializerOptions.IgnoreNullValues = true;
-                });
+            services.AddControllersWithViews();
+            //services.AddMvc()
+            //    .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+            //    .AddJsonOptions(options =>
+            //    {
+            //        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            //        options.JsonSerializerOptions.IgnoreNullValues = true;
+            //    });
 
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<FiveRingsDbContext>(options =>
@@ -53,12 +53,16 @@ namespace FiveRingsDb
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
             app.UseRouting();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

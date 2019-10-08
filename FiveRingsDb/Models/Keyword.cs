@@ -12,9 +12,9 @@ namespace FiveRingsDb.Models
         public KeywordType Type { get; set; }
 
         [JsonProperty("exceptions")]
-        public List<Trait> Exceptions { get; set; }
+        public List<string> Exceptions { get; set; }
 
         [JsonProperty("restrictions")]
-        public List<Trait> Restrictions { get; set; }
+        public List<string> Restrictions { get; set; }
     }
 }
