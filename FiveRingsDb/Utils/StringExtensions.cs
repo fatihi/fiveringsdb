@@ -4,8 +4,13 @@ using System.Text.RegularExpressions;
 
 namespace FiveRingsDb.Utils
 {
-    public static class ToCanonicalStringExtension
+    public static class StringExtensions
     {
+        public static string UppercaseFirstLetter(this string input)
+        {
+            return char.ToUpper(input[0], CultureInfo.CurrentCulture) + input.Substring(1);
+        }
+
         public static string ToCanonical(this string input)
         {
             if (input == null)

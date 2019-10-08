@@ -125,7 +125,7 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
                 .Be(
                     "<b>Action:</b> Bow this stronghold, choose a character – that character gets +2 glory until the end of the phase.");
             card.Traits.Should().HaveCount(1);
-            card.Traits.First().Should().Be(Trait.Shrine);
+            card.Traits.First().Should().Be("shrine");
             card.CardType.Should().Be(CardType.Stronghold);
             card.IsUnique.Should().BeTrue();
         }
@@ -202,8 +202,8 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
                 .Be(
                     "Attach to a character you control. Restricted.\n<b>Action:</b> While attached character is participating in a conflict, bow this attachment. Choose a participating character with lower [conflict-military] skill than attached character – return all fate on that character to its owner's fate pool.");
             card.Traits.Should().HaveCount(2);
-            card.Traits.Should().Contain(Trait.Jade);
-            card.Traits.Should().Contain(Trait.Weapon);
+            card.Traits.Should().Contain("jade");
+            card.Traits.Should().Contain("weapon");
             card.CardType.Should().Be(CardType.Attachment);
             card.IsUnique.Should().Be(false);
         }
@@ -269,9 +269,9 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
                 .Be(
                     "<b>Reaction:</b> After you break a province during a [conflict-military] conflict in which this character is participating, your opponent chooses a character he or she controls – discard that character.");
             card.Traits.Should().HaveCount(3);
-            card.Traits.Should().Contain(Trait.Bushi);
-            card.Traits.Should().Contain(Trait.Cavalry);
-            card.Traits.Should().Contain(Trait.Champion);
+            card.Traits.Should().Contain("bushi");
+            card.Traits.Should().Contain("cavalry");
+            card.Traits.Should().Contain("champion");
             card.CardType.Should().Be(CardType.Character);
             card.IsUnique.Should().BeTrue();
         }
@@ -344,7 +344,7 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
                 .Be(
                     "<b>Action:</b> During a conflict, sacrifice this holding. Choose a character you control – move that character to the conflict or home from the conflict.");
             card.Traits.Should().HaveCount(1);
-            card.Traits.Should().Contain(Trait.Battlefield);
+            card.Traits.Should().Contain("battlefield");
             card.CardType.Should().Be(CardType.Holding);
             card.IsUnique.Should().BeFalse();
         }
@@ -406,7 +406,7 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
                 .Be(
                     "<b>Action:</b> During a conflict, lose 1 honor and choose a participating character you control – move that character home. (Limit twice per round.)");
             card.Traits.Should().HaveCount(1);
-            card.Traits.Should().Contain(Trait.Dojo);
+            card.Traits.Should().Contain("dojo");
             card.CardType.Should().Be(CardType.Province);
             card.IsUnique.Should().BeTrue();
         }
@@ -479,8 +479,8 @@ namespace FiveRingsDb.Tests.Utils.JsonConverter
                 .Be(
                     "You may replace 1 province of any element with an additional [element-void] province while deckbuilding.\n<b>Reaction:</b> After a [element-void] province you control is revealed – gain 1 fate.");
             card.Traits.Should().HaveCount(2);
-            card.Traits.Should().Contain(Trait.Seeker);
-            card.Traits.Should().Contain(Trait.Void);
+            card.Traits.Should().Contain("seeker");
+            card.Traits.Should().Contain("void");
             card.CardType.Should().Be(CardType.Role);
             card.IsUnique.Should().BeFalse();
         }

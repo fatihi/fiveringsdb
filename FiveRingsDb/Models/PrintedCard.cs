@@ -14,7 +14,7 @@ namespace FiveRingsDb.Models
         public string ImageUrl { get; set; }
 
         [JsonProperty("pack")]
-        public SetName Pack { get; set; }
+        public string Pack { get; set; }
 
         [JsonProperty("position")]
         public string Position { get; set; }
