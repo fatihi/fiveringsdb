@@ -24,6 +24,14 @@ namespace FiveRingsDb
         {
             services.AddControllersWithViews();
 
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
+                });
+
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<FiveRingsDbContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("FiveRingsDb")));
