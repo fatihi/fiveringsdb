@@ -1,10 +1,13 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Globalization;
+using System.Text.Json.Serialization;
 using FiveRingsDb.Models;
 using FiveRingsDb.Repositories;
 using FiveRingsDb.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,7 +27,13 @@ namespace FiveRingsDb
         {
             services.AddControllersWithViews();
 
+            services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
+
             services.AddMvc()
+                .AddViewLocalization(
+                    LanguageViewLocationExpanderFormat.Suffix,
+                    options => { options.ResourcesPath = "Resources"; })
+                .AddDataAnnotationsLocalization()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddJsonOptions(options =>
                 {
@@ -52,6 +61,19 @@ namespace FiveRingsDb
             }
 
             app.UseHttpsRedirection();
+
+            var supportedCultures = new[]
+            {
+                new CultureInfo("en"),
+            };
+
+            app.UseRequestLocalization(new RequestLocalizationOptions()
+            {
+                DefaultRequestCulture = new RequestCulture("en"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            });
+
             app.UseStaticFiles();
 
             app.UseRouting();
