@@ -56,6 +56,9 @@
 
     <footer class="bg-light d-print-none">
         <div class="container text-center pt-3">
+            <div class="row">
+                @await Html.PartialAsync("_SelectLanguagePartial")
+            </div>
             <p>
                 Work in progress by the <a href="https://discord.gg/fTuEAuu">FiveRingsDB Discord channel</a>.
                 API Documentation at <a href="https://fiveringsdb.com/api/">https://fiveringsdb.com/api/</a>.

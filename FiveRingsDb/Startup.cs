@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace FiveRingsDb
 {
@@ -41,6 +42,19 @@ namespace FiveRingsDb
                     options.JsonSerializerOptions.IgnoreNullValues = true;
                 });
 
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[]
+                {
+                    new CultureInfo("en"),
+                    new CultureInfo("de")
+                };
+
+                options.DefaultRequestCulture = new RequestCulture("en");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
             services.AddEntityFrameworkNpgsql()
                 .AddDbContext<FiveRingsDbContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("FiveRingsDb")));
@@ -62,17 +76,8 @@ namespace FiveRingsDb
 
             app.UseHttpsRedirection();
 
-            var supportedCultures = new[]
-            {
-                new CultureInfo("en"),
-            };
-
-            app.UseRequestLocalization(new RequestLocalizationOptions()
-            {
-                DefaultRequestCulture = new RequestCulture("en"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            });
+            var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(options.Value);
 
             app.UseStaticFiles();
 
