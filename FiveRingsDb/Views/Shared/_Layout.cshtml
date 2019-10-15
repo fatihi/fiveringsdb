@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using FiveRingsDb.Resources
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -31,16 +36,16 @@
                 <div class="navbar-collapse collapse d-md-inline-flex flex-md-row-reverse">
                     <ul class="navbar-nav flex-grow-1 mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Cards" asp-action="Index">Cards</a>
+                            <a class="nav-link" asp-controller="Cards" asp-action="Index">@Localizer[ResourceKeys.Cards]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Decks</a>
+                            <a class="nav-link">@Localizer[ResourceKeys.Decks]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Builder</a>
+                            <a class="nav-link">@Localizer[ResourceKeys.Builder]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Rules</a>
+                            <a class="nav-link">@Localizer[ResourceKeys.Rules]</a>
                         </li>
                     </ul>
                 </div>
@@ -60,15 +65,14 @@
                 @await Html.PartialAsync("_SelectLanguagePartial")
             </div>
             <p>
-                Work in progress by the <a href="https://discord.gg/fTuEAuu">FiveRingsDB Discord channel</a>.
-                API Documentation at <a href="https://fiveringsdb.com/api/">https://fiveringsdb.com/api/</a>.
+                @Localizer[ResourceKeys.WorkInProgress]
+                @Localizer[ResourceKeys.ApiDoc]
             </p>
             <p class="small">
-                The source material, text and images, presented on this site, is copyrighted by Fantasy Flight Games.<br>
-                Legend of the Five Rings is a trademark of Fantasy Flight Games.
+                @Localizer[ResourceKeys.Copyright]
             </p>
             <div class="small">
-                This website is not produced, endorsed, supported, or affiliated with Fantasy Flight Games.
+                @Localizer[ResourceKeys.Disclaimer]
             </div>
         </div>
     </footer>
